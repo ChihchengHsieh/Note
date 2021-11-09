@@ -1,3 +1,2 @@
 # Note Repo
-
-## This folder containing the note for all stuff.
+This repo containing the note for all stuff.
