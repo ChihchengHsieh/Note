@@ -1,0 +1,293 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{amsmath}
+
+%%%%%%%%%%%%%%%%%%%%% Customisation %%%%%%%%%%%%%%%%%%%%%
+\usetheme{Madrid}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{itemize item}{$\bullet$}
+\setbeamertemplate{navigation symbols}{}
+\makeatother
+\setbeamertemplate{footline}
+{
+    \leavevmode%
+    \hbox{%
+        \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author
+                in
+                head/foot}%
+            \usebeamerfont{author in head/foot}\insertshortauthor
+        \end{beamercolorbox}
+
+        \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title
+                in
+                head/foot}%
+            \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{13em}
+            \insertframenumber{} / \inserttotalframenumber\hspace*{0ex}
+        \end{beamercolorbox}}
+
+    \vskip0pt%
+}
+\makeatletter
+\AtBeginSection[]{
+    \begin{frame}
+        \vfill
+        \centering
+        \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+
+            \usebeamerfont{title}\insertsectionhead\par%
+        \end{beamercolorbox}
+        \vfill
+    \end{frame}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Multimodal Learning in CXR image}
+\author{Chihcheng Hsieh}
+\institute{Queensland University of Technology}
+\date{November 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Proposal and plan for JBHI Special Issue}
+\subsection{Path}
+
+\begin{frame}{Meeting notes}
+    \begin{itemize}
+        \item What is multi-modal learning? Learns from heterogeneous data
+              types.
+        \item Investigating state-of-the-art DL architecture.
+    \end{itemize}
+\end{frame}
+
+\section{PhD proposal}
+\begin{frame}{}
+\end{frame}
+
+\section{Multi-modal learning - A survey on recent advances and trends}
+
+% Brief introduction for multi-modal learning.
+\begin{frame}{Multi-Modal learning}
+    \Large\textbf{What's multi-modal learning?} \\
+    Multi-modal learning is the machine learning model to learn from a dataset
+    with multiple data modalities.\\
+    \vspace*{\stretch{1.0}}
+    \Large\textbf{Why do we need multi-modal learning?} \\
+    The natural progression of deep learning research points to problems
+    involving larger and more complex multi-modal dataset. If data scientist
+    want
+    to improve the performance, adopting multi-modal learning will be
+    necessary.
+\end{frame}
+
+% what's the difference between deep and conventional multi-modal.
+\begin{frame}{Deep Multi-modal Learning v.s Conventional Multi-modal Learning}
+    \includegraphics[width=\textwidth]{imgs/Deep Multimodal Learning vs
+        Conventional MultiModal Learning.png}
+\end{frame}
+
+% The dataset for multi-modal learning.
+\begin{frame}{Available Multi-Modal datasets}
+    \begin{center}
+
+        \includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{imgs/Available
+            datasets.png}
+    \end{center}
+\end{frame}
+
+% The application for multi-modal learning.
+\begin{frame}{Applications}
+    \begin{center}https://www.overleaf.com/project/618116496b9c5cf5c68a9bc5
+
+        \includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{imgs/MultiModal-Applications.png}
+    \end{center}
+\end{frame}
+
+% Difference between Generative and Discriminative modals.
+\begin{frame}{Generartive \& Discriminative Models}
+    \Large\textbf{Generative Models} implicitly or explicitly represent a data
+    distribution, often allowing for new data to be sampled or “generated”
+    through a process, hence their name. \\
+    \vspace*{\stretch{1.0}}
+    \Large\textbf{Discriminative Models} on the other hand, are less ambitious.
+    Rather than modeling distributions, they attempt to model class boundaries.
+    \\
+\end{frame}
+
+\begin{frame}{Fusion Structure}
+    \begin{center}
+
+        \includegraphics[width=\textwidth,height=.85\textheight,keepaspectratio]{imgs/Fusion-Structure.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Early Fusion}
+    \begin{columns}
+        \begin{column}{.3\textwidth}
+            \includegraphics[width=\textwidth]{imgs/Early-Fusion.png}
+        \end{column}
+        \begin{column}{.6\textwidth}
+            \large\textbf{Early fusion} involves the integration of multiple
+            sources of data, at times very disparate, into a single feature
+            vector, before
+            being used as input to a machine-learning algorithm. The data to be
+            fused are
+            the raw or pre-processed data from the sensor; hence, the terms
+            \emph{data
+                fusionor multisensor fusion} are often used.
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Late Fusion}
+    \begin{columns}
+        \begin{column}{.3\textwidth}
+            \includegraphics[width=\textwidth]{imgs/Late-Fusion.png}
+        \end{column}
+        \begin{column}{.6\textwidth}
+            \large\textbf{Late- or decision-level fusion} refers to the
+            aggregation of decisions from multiple classifiers, each trained on
+            separate
+            modalities.. This fusion architecture is often favored because
+            errors from
+            multiple classifiers tend to be uncorrelated and the method is
+            feature
+            independent. Various rules exist to determine how decisions from
+            different
+            classifiers are combined.
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Intermediate  Fusion}
+    \begin{columns}
+        \begin{column}{.3\textwidth}
+            \includegraphics[width=\textwidth]{imgs/Intermediate-Fusion.png}
+        \end{column}
+        \begin{column}{.6\textwidth}
+            In the multimodal context, when all of the modalities are
+            transformed into representations, then it becomes amenable to fuse
+            different
+            representations into a single hidden layer and then learn a joint
+            multimodal
+            representation. The majority of work in deep multimodal fusion
+            adopts this
+            \large\textbf{intermediate-fusion} approach, where a shared
+            representation
+            layer is constructed by merging units with connections coming into
+            this layer
+            from multiple modality-specific paths. Representations (features)
+            are learned
+            using different kinds of layers (e.g., 2-D-convolution,
+            3-D-convolution, or
+            fully connected), and representations are fused using a fusion
+            layer, also
+            known as a \emph{shared representation layer}.
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Conclusion}
+    In this article, we have reviewed recent advancements in deep multimodal
+    learning. It is undeniable that the incorporation of multiple modalities
+    into
+    the learning problem almost always \textbf{results in much better
+        performance}
+    for a wide range of problems. From a fusion perspective, we see that
+    techniques
+    in deep multimodal learning can be classified into early- and late-fusion
+    approaches and that \textbf{deep-learning methods} facilitate a flexible
+    intermediate-fusion approach, which not only makes it simpler to fuse
+    modality-wise representations and learn a joint representation but also
+    allows
+    multimodal fusion at various depths in the architecture. Although deep
+    learning
+    has, in many cases, reduced the need for feature engineering, deep-learning
+    architectures still involve a great deal of manual design, and
+    experimenters
+    may not have explored the full space of possible fusion architectures. It
+    is
+    only natural that researchers should extend the notion of learning to
+    architectures in an effort to have a truly generic learning method, which
+    can
+    be adapted, \textbf{with minimal or no human intervention}, to a specific
+    task.
+\end{frame}
+
+% Another paper here. (Which one?)
+
+\section{A survey on deep multimodal learning for computer vision: advances,
+  trends, applications, and datasets}
+\begin{frame}{Summary}
+    % Briefly explain the paper here.
+    Unstructured real-world data can inherently take many forms, also known as
+    modalities, often including visual and textual content. Model with the
+    capability to process and analyse multimodal information uniformly has the
+    potential to improve perceptual cognition . \\
+    \vspace{\stretch{0.3}}
+    This paper is to explore how to generate models that consider the
+    integration and combination of heterogeneous visual cues across sensory
+    modalities. And, it summarise six perspectives from the current literature
+    on
+    deep multimodal learning.\\
+    \vspace{\stretch{0.2}}
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item Multimodal data representation
+            \item Multimodal fusion
+            \item Multitask learning
+            \item Multimodal alignment
+            \item Multimodal transfer learning
+            \item Zero-shot learning
+        \end{enumerate}
+    \end{multicols}
+\end{frame}
+
+%%% [Optional] %%%
+\begin{frame}{Terms}
+    % Define tearms here if needed.
+\end{frame}
+
+\begin{frame}{Motivation}
+    % Provide background information and motivation of this paper.
+    The main reason for using multimodal data sources is that it is possible to
+    \textbf{extract complementary and richer information coming from multiple
+        sensors}, which can provide much more optimistic results than a single
+    input.
+    Some monomodal learning systems have significantly increased their
+    robustness
+    and accuracy, but in many use cases, there are shortcomings in terms of the
+    universality of different feature levels and inaccuracies due to noise and
+    missing concepts.
+\end{frame}
+
+\begin{frame}{Typical Multimodal architecture}
+    \includegraphics[width=\textwidth, height=.85\textheight,
+        keepaspectratio]{imgs/MultiModalMotivation.png}\\
+\end{frame}
+
+\begin{frame}{1. MultiModal representation}
+    %%% Using math for explaining
+    First, let us consider two input streams of different modalities:\\
+    \begin{math}
+        X_a = \{X_1^n,\cdots,X_T^n\},\quad X_v = \{X_1^m,\cdots,X_T^m\}\\\\
+
+        Where m and n are feature dimensions, and T means the timestamp.
+
+    \end{math}
+\end{frame}
+
+\begin{frame}{Contribution}
+    % Contribution of this paper.
+\end{frame}
+
+\begin{frame}{Conclusion}
+    % Wrap up the paper.
+\end{frame}
+\section{Multi-modal Understanding and Generation for Medical Images and Text
+  via Vision-Language Pre-Training}
+% Two of my proposed structure.
+
+\end{document}
