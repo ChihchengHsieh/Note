@@ -74,4 +74,10 @@ as the title.
 
 ### [Combining chest X-rays and EHR data using machine learning to diagnose acute respiratory failure](https://arxiv.org/abs/2108.12530)
 
-It uses clinical data from electronic health record (EHR); 
+It uses clinical data from electronic health record (EHR); '
+
+
+### [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
+
+![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
+
