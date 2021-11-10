@@ -57,8 +57,21 @@ Ensemble CNN in this paper.
 
 It proposes a labeling strategy to generate labels from the radiologiests' report text by a BERT-based model.
 
+### 14. [Can we trust deep learning based diagnosis? The impact of domain shift in chest radiograph classification](https://arxiv.org/pdf/1909.01940.pdf)
 
+It evaluates the extent of **domain shift** on four of the largest datasets of chest radiographs.
 
+### 15. [Deep learning in generating radiology reports: A survey](https://www.sciencedirect.com/science/article/pii/S0933365719302635?casa_token=pZSJa9oS1FEAAAAA:PkrVT16EbXYciIsob830jx7zgWYG8jAxKC6UaWdbmMASkffio1ApKnUc0J2IquYL27ThMSD54w)
+
+as the title.
+
+![image](https://user-images.githubusercontent.com/37566901/141138392-f96be232-f992-496c-88a5-32e4207030d1.png)
+
+### 16. []
 
 
 ## Have clinical data
+
+### [Combining chest X-rays and EHR data using machine learning to diagnose acute respiratory failure](https://arxiv.org/abs/2108.12530)
+
+It uses clinical data from electronic health record (EHR); 
