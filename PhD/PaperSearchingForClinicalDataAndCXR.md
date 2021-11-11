@@ -48,7 +48,6 @@ This paper provides multiple CNN for abnormality classification.
 ### 11. [CheXclusion: Fairness gaps in deep chest X-ray classifiers](https://www.worldscientific.com/doi/abs/10.1142/9789811232701_0022)
 
 
-
 ### 12. [Interpreting chest X-rays via CNNs that exploit hierarchical disease dependencies and uncertainty labels](https://www.sciencedirect.com/science/article/pii/S0925231221000953?casa_token=-mrhEvQxsaYAAAAA:1vz9y4Hc0q7QWghLucTefHn1Rl8nWk21TJoN6-qjiRORC2KfKd4TKWWcDz5mhwty-LsykSDmFA)
 
 Ensemble CNN in this paper.
@@ -71,11 +70,22 @@ as the title.
 
 ![image](https://user-images.githubusercontent.com/37566901/141229989-d1ce3a98-5848-4e5c-b6ef-d77e457cd95e.png)
 
+
 ## Have clinical data
 
 ### [Combining chest X-rays and EHR data using machine learning to diagnose acute respiratory failure](https://arxiv.org/abs/2108.12530)
 
-It uses clinical data from electronic health record (EHR).
+It uses clinical data from electronic health record (EHR) -> textual input..
+
+### [CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning](https://arxiv.org/pdf/1711.05225.pdf)
+
+![image](https://user-images.githubusercontent.com/37566901/141231944-838b7557-18a2-47bd-ad77-2d6738292a04.png)
+
+Using CXR-image only to outperform the human radiologist in the task of pneumonia detection.
+
+### [Deep learning for chest radiograph diagnosis: A retrospective comparison of the CheXNeXt algorithm to practicing radiologists](https://stanfordmlgroup.github.io/projects/chexnext/)
+
+This paper is s for detecting 14 clinically important diseases with heatmap provided.
 
 ### [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
 
@@ -90,12 +100,3 @@ This study profiles a number of text-generation models for automatic radiology r
 ![image](https://user-images.githubusercontent.com/37566901/141231446-1106d6ea-4770-4b2b-9d04-2bb29a73ca3d.png)
 
 This paper use EHR (text) and CXR-image to make prediction.
-
-### [CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning](https://arxiv.org/pdf/1711.05225.pdf)
-
-![image](https://user-images.githubusercontent.com/37566901/141231944-838b7557-18a2-47bd-ad77-2d6738292a04.png)
-
-Using CXR-image only to outperform the human radiologist.
-
-### [Deep learning for chest radiograph diagnosis: A retrospective comparison of the CheXNeXt algorithm to practicing radiologists](https://stanfordmlgroup.github.io/projects/chexnext/)
- 
