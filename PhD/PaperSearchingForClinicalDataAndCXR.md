@@ -122,19 +122,42 @@ This paper use GANs to generate CXR images and reports. It states that these gen
 
 ![image](https://user-images.githubusercontent.com/37566901/141286523-513aace1-9b3b-4029-8e66-70647354d0ba.png)
 
- ### 26. [Reinforcement Learning with Imbalanced Dataset for Data-to-Text Medical Report Generation](https://aclanthology.org/2020.findings-emnlp.202/)
+### 26. [Reinforcement Learning with Imbalanced Dataset for Data-to-Text Medical Report Generation](https://aclanthology.org/2020.findings-emnlp.202/)
+  
+![image](https://user-images.githubusercontent.com/37566901/141299851-b497c3dd-bf80-4a33-ad9f-b606b85ddaeb.png)
+
+![image](https://user-images.githubusercontent.com/37566901/141301981-9aa5f71c-226b-4ec6-b53b-2d736682b9a6.png)
+  
+![image](https://user-images.githubusercontent.com/37566901/141303334-715ae8f7-1dfb-46a3-95b2-e1136d2af1b4.png
+
+  
+This one is pretty strange... it involve the readiology to modify or correct the diagnosis from the model. Then, put the modified diagnosis to the report generator.
+If the label is modified from a radiologist, then radiologist can write a report and make diagnosis by himself. Why do we need a model to generate some diagnosis for the radiologist to re-diagnose the same patient and correct the prediction of the model? Moreover, the text generator only take the labels as the input without any information from the image. It means no matter what the image looks like, if they have same label, the report text will be the same. If a patient has slightly *Cardiomegaly.Positive* and another has severe *Cardiomegaly.Positive*, because their lables are the same, the report can't show the difference between these two patient.
   
   
+### 27. [Show, tell and summarise: learning to generate and summarise radiology findings from medical images](https://link.springer.com/article/10.1007/s00521-021-05943-6)
+This model use 2 steps approach to generate the report. The first step is to generate the findings from X-ray. Secondly, sumarizing them to provide impression section. In the second stage, it also uses different model for generating normal and abnormal reports.
+
+![image](https://user-images.githubusercontent.com/37566901/141308085-1edd8777-5771-448b-8a9e-14b4c4de5f2e.png)
+
+![image](https://user-images.githubusercontent.com/37566901/141308169-a3c46e03-ca42-4f38-ab11-9a3e7d17160c.png)
+
+(It can make a gateway for summarisation model to retrieve the information from the image.)
   
+![image](https://user-images.githubusercontent.com/37566901/141308416-6c5d9f24-85ee-46bb-9b5a-aca022aa2b95.png)
+
   
-## Have clinical data
+## With clinical data
 
 ### 1. [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
   
 ![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
  
- This one using tabular data, including age and gender.
+This one using tabular data, including age and gender.
+
   
   
+  
+
 
 
