@@ -96,8 +96,6 @@ It uses clinical data from electronic health record (EHR<text report>)
 ![image](https://user-images.githubusercontent.com/37566901/141231446-1106d6ea-4770-4b2b-9d04-2bb29a73ca3d.png)
 
 This paper use EHR (structure) and CXR-image to make prediction.
-
-
     
 ### 22. [A ROBUST NETWORK ARCHITECTURE TO DETECT NORMAL CHEST X-RAY RADIOGRAPHS](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9098671)
 This paper just propose a CNN model architecture (involve inverse-CNN).
@@ -105,14 +103,31 @@ This paper just propose a CNN model architecture (involve inverse-CNN).
 ![image](https://user-images.githubusercontent.com/37566901/141266713-988ca8d0-b159-49be-8ad9-65e17dd6327b.png)
   
  
+### 23. [Health Informatics: Clinical Information Systems and Artificial Intelligence to Support Medicine in the CoViD-19 Pandemic](https://ieeexplore.ieee.org/abstract/document/9565764?casa_token=sn3qJrBJQAcAAAAA:zRphFa6P-Z28GCJ8SHuLnPW1erlggs7-doNpnOvpZVM3H8TidYC-6W0VkwVN-TfGQh5R0hVi4u0)
 
+Just another literature review in skin-deep level.
+  
+### 24. [COVID-19 PROGNOSIS VIA SELF-SUPERVISED REPRESENTATION LEARNING AND MULTI-IMAGE PREDICTION](https://arxiv.org/pdf/2101.04909.pdf)
+  
+- This one use MIMIC for pre-training and use COVID-19 Dataset and Deterioration Labels to fine tune the model.
+- It uses contrast training 
+  ![image](https://user-images.githubusercontent.com/37566901/141284729-d33c0f8a-a0cb-437e-8b78-92e61e4e7d1e.png)
 
+- It use sequence of the CXR-image according to the scam time.
+  ![image](https://user-images.githubusercontent.com/37566901/141284890-3a554ba1-9b71-4a6d-9f11-22e268164f72.png)
 
+### 25. [EMIXER: End-to-end Multimodal X-ray Generation via Self-supervision](https://arxiv.org/pdf/2007.05597.pdf)
+ 
+This paper use GANs to generate CXR images and reports. It states that these generated CXR-images and reprot text can benefit the performance of classifier.
+
+![image](https://user-images.githubusercontent.com/37566901/141286523-513aace1-9b3b-4029-8e66-70647354d0ba.png)
+
+ ### 26. [Reinforcement Learning with Imbalanced Dataset for Data-to-Text Medical Report Generation](https://aclanthology.org/2020.findings-emnlp.202/)
+  
+  
+  
   
 ## Have clinical data
-
-
-
 
 ### 1. [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
   
