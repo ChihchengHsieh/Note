@@ -69,6 +69,9 @@ as the title.
 ### 16. [Baselines for Chest X-Ray Report Generation](http://proceedings.mlr.press/v116/boag20a)
 
 ![image](https://user-images.githubusercontent.com/37566901/141229989-d1ce3a98-5848-4e5c-b6ef-d77e457cd95e.png)
+![image](https://user-images.githubusercontent.com/37566901/141230061-eaf11faa-28cf-42cf-867b-2c82256bd4fe.png)
+
+This study profiles a number of text-generation models for automatic radiology report generation across evaluation metrics spanning linguistic quality (BLEU-1 through BLEU-4, CIDEr) as well as clinical efficacy (CheXpert accuracy, precision, and F1).
 
 ### 17. [CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning](https://arxiv.org/pdf/1711.05225.pdf)
 
@@ -102,11 +105,8 @@ This paper just propose a CNN model architecture (involve inverse-CNN).
 ![image](https://user-images.githubusercontent.com/37566901/141266713-988ca8d0-b159-49be-8ad9-65e17dd6327b.png)
   
  
-### [One report](www.google.com)
-    
-![image](https://user-images.githubusercontent.com/37566901/141230061-eaf11faa-28cf-42cf-867b-2c82256bd4fe.png)
 
-This study profiles a number of text-generation models for automatic radiology report generation across evaluation metrics spanning linguistic quality (BLEU-1 through BLEU-4, CIDEr) as well as clinical efficacy (CheXpert accuracy, precision, and F1).
+
 
   
 ## Have clinical data
