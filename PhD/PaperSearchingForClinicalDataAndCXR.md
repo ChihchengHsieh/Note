@@ -128,8 +128,7 @@ This paper use GANs to generate CXR images and reports. It states that these gen
 
 ![image](https://user-images.githubusercontent.com/37566901/141301981-9aa5f71c-226b-4ec6-b53b-2d736682b9a6.png)
   
-![image](https://user-images.githubusercontent.com/37566901/141303334-715ae8f7-1dfb-46a3-95b2-e1136d2af1b4.png
-
+![image](https://user-images.githubusercontent.com/37566901/141303334-715ae8f7-1dfb-46a3-95b2-e1136d2af1b4.png)
   
 This one is pretty strange... it involve the readiology to modify or correct the diagnosis from the model. Then, put the modified diagnosis to the report generator.
 If the label is modified from a radiologist, then radiologist can write a report and make diagnosis by himself. Why do we need a model to generate some diagnosis for the radiologist to re-diagnose the same patient and correct the prediction of the model? Moreover, the text generator only take the labels as the input without any information from the image. It means no matter what the image looks like, if they have same label, the report text will be the same. If a patient has slightly *Cardiomegaly.Positive* and another has severe *Cardiomegaly.Positive*, because their lables are the same, the report can't show the difference between these two patient.
