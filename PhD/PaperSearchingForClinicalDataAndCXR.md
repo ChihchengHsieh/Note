@@ -70,31 +70,34 @@ as the title.
 
 ![image](https://user-images.githubusercontent.com/37566901/141229989-d1ce3a98-5848-4e5c-b6ef-d77e457cd95e.png)
 
-### [CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning](https://arxiv.org/pdf/1711.05225.pdf)
+### 17. [CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning](https://arxiv.org/pdf/1711.05225.pdf)
 
 ![image](https://user-images.githubusercontent.com/37566901/141231944-838b7557-18a2-47bd-ad77-2d6738292a04.png)
 
 Using CXR-image only to outperform the human radiologist in the task of pneumonia detection.
 
-### [Deep learning for chest radiograph diagnosis: A retrospective comparison of the CheXNeXt algorithm to practicing radiologists](https://stanfordmlgroup.github.io/projects/chexnext/)
+### 18. [Deep learning for chest radiograph diagnosis: A retrospective comparison of the CheXNeXt algorithm to practicing radiologists](https://stanfordmlgroup.github.io/projects/chexnext/)
 
 This paper is s for detecting 14 clinically important diseases with heatmap provided.
 
-### [Variational Knowledge Distillation for Disease Classification in Chest X-Rays](https://arxiv.org/abs/2103.10825)
+
+### 20. [Combining chest X-rays and EHR data using machine learning to diagnose acute respiratory failure](https://arxiv.org/abs/2108.12530)
+
+It uses clinical data from electronic health record (EHR<text report>)
+  
+## Have clinical data
+
+### 1. [Variational Knowledge Distillation for Disease Classification in Chest X-Rays](https://arxiv.org/abs/2103.10825)
 
 ![image](https://user-images.githubusercontent.com/37566901/141231470-171b0470-3103-42f9-944b-645f841efaf8.png)
 
 ![image](https://user-images.githubusercontent.com/37566901/141231446-1106d6ea-4770-4b2b-9d04-2bb29a73ca3d.png)
 
-This paper use EHR (text) and CXR-image to make prediction.
+This paper use EHR (structure) and CXR-image to make prediction.
+
+### 2. [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
 
 ## Have clinical data
-
-### [Combining chest X-rays and EHR data using machine learning to diagnose acute respiratory failure](https://arxiv.org/abs/2108.12530)
-
-It uses clinical data from electronic health record (EHR) -> textual input..
-
-### [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
 
 ![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
 ![image](https://user-images.githubusercontent.com/37566901/141230061-eaf11faa-28cf-42cf-867b-2c82256bd4fe.png)
