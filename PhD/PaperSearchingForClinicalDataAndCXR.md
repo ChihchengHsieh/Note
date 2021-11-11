@@ -98,6 +98,7 @@ It uses clinical data from electronic health record (EHR) -> textual input..
 
 ![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
 ![image](https://user-images.githubusercontent.com/37566901/141230061-eaf11faa-28cf-42cf-867b-2c82256bd4fe.png)
+
 This study profiles a number of text-generation models for automatic radiology report generation across evaluation metrics spanning linguistic quality (BLEU-1 through BLEU-4, CIDEr) as well as clinical efficacy (CheXpert accuracy, precision, and F1).
 
 
