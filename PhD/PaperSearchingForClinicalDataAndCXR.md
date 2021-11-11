@@ -152,13 +152,46 @@ This model use 2 steps approach to generate the report. The first step is to gen
   ![image](https://user-images.githubusercontent.com/37566901/141324258-64ff193f-da8e-4fc0-af55-5ae925e195f7.png)
 other than that, it's pretty basic one.
   
+### 29. [Individual predictions matter: Assessing the effect of data ordering in training fine-tuned CNNs for medical imaging](https://arxiv.org/abs/1912.03606)
+
+[CheXNet Reproduce](https://github.com/jrzech/reproduce-chexnet)
+  
+Is this one pre-split the data before changing the random seed? cuz if it change it before the splitting, it will cause the training and test dataset to be built differently. Wihtout the code being available, I don't believe what this paper does.
+  
+[Code here](https://github.com/jrzech?tab=repositories)
+  
+  
+### 30. [Deep Learning Methods for Screening Pulmonary Tuberculosis Using Chest X-rays](https://www.tandfonline.com/doi/full/10.1080/21681163.2020.1808532?casa_token=QXanWJ7DfNIAAAAA%3ADRlUF9eleLzd5yHb-mGoboytKu-lp_qCT9eIzwC9X1LMY-d2w2v07jHw7NSL4HzzrI17_wKYSBq_iA)
+  
+- The presented deep learning pipeline consists of three different modern deep learning architectures, to generate, segment, and classify lung X-rays. 
+- I'm not really sure why does the propsed pipeline helpful for classification task (pre-training?)? 
+  
+### 31. *[Big Self-Supervised Models Advance Medical Image Classification (Google)](https://arxiv.org/abs/2101.05224)
+![image](https://user-images.githubusercontent.com/37566901/141345990-d841e869-fd64-4e14-a27f-0cb61b2882cb.png)
+prove that self-supervise learning is important.
+  
+### 32. *[Neural Natural Language Processing for UnstructuredData in Electronic Health Records: a Review](https://arxiv.org/pdf/2107.02975.pdf)
+
+This paper list all of the tasks we can do for the text data in EHR.
+  
+### 33. *[Multimodal Machine Learning for Automated ICD Coding](http://proceedings.mlr.press/v106/xu19a/xu19a.pdf)
+ 
+![image](https://user-images.githubusercontent.com/37566901/141348196-d441d448-3f99-43a5-9b82-19b92afbfddc.png)
+  
+Using both text data and tabular data in EHR to make classification.
+  
+### 34. *[Improving Pneumonia Localization via Cross-Attention on Medical Images and Reports](https://link.springer.com/chapter/10.1007/978-3-030-87196-3_53)
+
+This one use the CXR-image to generate the bouding box. During training, it uses the report text (from radiologists) to assist training.
+  
+![image](https://user-images.githubusercontent.com/37566901/141349492-e27902e4-5d55-445c-9443-8db9da5bdc46.png)
+
   
 ## With clinical data
 
 ### 1. [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
   
 ![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
-
 
 
   
