@@ -70,13 +70,6 @@ as the title.
 
 ![image](https://user-images.githubusercontent.com/37566901/141229989-d1ce3a98-5848-4e5c-b6ef-d77e457cd95e.png)
 
-
-## Have clinical data
-
-### [Combining chest X-rays and EHR data using machine learning to diagnose acute respiratory failure](https://arxiv.org/abs/2108.12530)
-
-It uses clinical data from electronic health record (EHR) -> textual input..
-
 ### [CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning](https://arxiv.org/pdf/1711.05225.pdf)
 
 ![image](https://user-images.githubusercontent.com/37566901/141231944-838b7557-18a2-47bd-ad77-2d6738292a04.png)
@@ -87,12 +80,6 @@ Using CXR-image only to outperform the human radiologist in the task of pneumoni
 
 This paper is s for detecting 14 clinically important diseases with heatmap provided.
 
-### [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
-
-![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
-![image](https://user-images.githubusercontent.com/37566901/141230061-eaf11faa-28cf-42cf-867b-2c82256bd4fe.png)
-This study profiles a number of text-generation models for automatic radiology report generation across evaluation metrics spanning linguistic quality (BLEU-1 through BLEU-4, CIDEr) as well as clinical efficacy (CheXpert accuracy, precision, and F1).
-
 ### [Variational Knowledge Distillation for Disease Classification in Chest X-Rays](https://arxiv.org/abs/2103.10825)
 
 ![image](https://user-images.githubusercontent.com/37566901/141231470-171b0470-3103-42f9-944b-645f841efaf8.png)
@@ -100,3 +87,17 @@ This study profiles a number of text-generation models for automatic radiology r
 ![image](https://user-images.githubusercontent.com/37566901/141231446-1106d6ea-4770-4b2b-9d04-2bb29a73ca3d.png)
 
 This paper use EHR (text) and CXR-image to make prediction.
+
+## Have clinical data
+
+### [Combining chest X-rays and EHR data using machine learning to diagnose acute respiratory failure](https://arxiv.org/abs/2108.12530)
+
+It uses clinical data from electronic health record (EHR) -> textual input..
+
+### [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
+
+![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
+![image](https://user-images.githubusercontent.com/37566901/141230061-eaf11faa-28cf-42cf-867b-2c82256bd4fe.png)
+This study profiles a number of text-generation models for automatic radiology report generation across evaluation metrics spanning linguistic quality (BLEU-1 through BLEU-4, CIDEr) as well as clinical efficacy (CheXpert accuracy, precision, and F1).
+
+
