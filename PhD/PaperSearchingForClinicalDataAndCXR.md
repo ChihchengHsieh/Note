@@ -83,5 +83,19 @@ It uses clinical data from electronic health record (EHR).
 ![image](https://user-images.githubusercontent.com/37566901/141230061-eaf11faa-28cf-42cf-867b-2c82256bd4fe.png)
 This study profiles a number of text-generation models for automatic radiology report generation across evaluation metrics spanning linguistic quality (BLEU-1 through BLEU-4, CIDEr) as well as clinical efficacy (CheXpert accuracy, precision, and F1).
 
-### [Variational Knowledge Distillation for Disease Classification in Chest X-Rays](https://link.springer.com/chapter/10.1007/978-3-030-78191-0_26)
+### [Variational Knowledge Distillation for Disease Classification in Chest X-Rays](https://arxiv.org/abs/2103.10825)
 
+![image](https://user-images.githubusercontent.com/37566901/141231470-171b0470-3103-42f9-944b-645f841efaf8.png)
+
+![image](https://user-images.githubusercontent.com/37566901/141231446-1106d6ea-4770-4b2b-9d04-2bb29a73ca3d.png)
+
+This paper use EHR (text) and CXR-image to make prediction.
+
+### [CheXNet: Radiologist-Level Pneumonia Detection on Chest X-Rays with Deep Learning](https://arxiv.org/pdf/1711.05225.pdf)
+
+![image](https://user-images.githubusercontent.com/37566901/141231944-838b7557-18a2-47bd-ad77-2d6738292a04.png)
+
+Using CXR-image only to outperform the human radiologist.
+
+### [Deep learning for chest radiograph diagnosis: A retrospective comparison of the CheXNeXt algorithm to practicing radiologists](https://stanfordmlgroup.github.io/projects/chexnext/)
+ 
