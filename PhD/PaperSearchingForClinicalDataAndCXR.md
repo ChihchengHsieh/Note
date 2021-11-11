@@ -85,8 +85,7 @@ This paper is s for detecting 14 clinically important diseases with heatmap prov
 
 It uses clinical data from electronic health record (EHR<text report>)
   
-## Have clinical data
-
+  
 ### 21. [Variational Knowledge Distillation for Disease Classification in Chest X-Rays](https://arxiv.org/abs/2103.10825)
 
 ![image](https://user-images.githubusercontent.com/37566901/141231470-171b0470-3103-42f9-944b-645f841efaf8.png)
@@ -95,24 +94,32 @@ It uses clinical data from electronic health record (EHR<text report>)
 
 This paper use EHR (structure) and CXR-image to make prediction.
 
-  
+
+    
 ### 22. [A ROBUST NETWORK ARCHITECTURE TO DETECT NORMAL CHEST X-RAY RADIOGRAPHS](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9098671)
 This paper just propose a CNN model architecture (involve inverse-CNN).
   
 ![image](https://user-images.githubusercontent.com/37566901/141266713-988ca8d0-b159-49be-8ad9-65e17dd6327b.png)
+  
+ 
+### [One report](www.google.com)
+    
+![image](https://user-images.githubusercontent.com/37566901/141230061-eaf11faa-28cf-42cf-867b-2c82256bd4fe.png)
 
+This study profiles a number of text-generation models for automatic radiology report generation across evaluation metrics spanning linguistic quality (BLEU-1 through BLEU-4, CIDEr) as well as clinical efficacy (CheXpert accuracy, precision, and F1).
 
+  
 ## Have clinical data
+
+
+
 
 ### 1. [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
   
 ![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
+ 
+ This one using tabular data, including age and gender.
   
   
-  
-  
-![image](https://user-images.githubusercontent.com/37566901/141230061-eaf11faa-28cf-42cf-867b-2c82256bd4fe.png)
-
-This study profiles a number of text-generation models for automatic radiology report generation across evaluation metrics spanning linguistic quality (BLEU-1 through BLEU-4, CIDEr) as well as clinical efficacy (CheXpert accuracy, precision, and F1).
 
 
