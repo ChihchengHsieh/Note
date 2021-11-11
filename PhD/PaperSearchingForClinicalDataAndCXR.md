@@ -150,7 +150,7 @@ This model use 2 steps approach to generate the report. The first step is to gen
   
 - It uses transfer learning
   ![image](https://user-images.githubusercontent.com/37566901/141324258-64ff193f-da8e-4fc0-af55-5ae925e195f7.png)
-
+other than that, it's pretty basic one.
   
   
 ## With clinical data
@@ -158,8 +158,7 @@ This model use 2 steps approach to generate the report. The first step is to gen
 ### 1. [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
   
 ![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
- 
-This one using tabular data, including age and gender. other than that is pretty basic.
+
 
 
   
