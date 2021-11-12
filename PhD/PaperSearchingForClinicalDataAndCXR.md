@@ -286,4 +286,4 @@ We can use the object detection model from here to do abnormality detection.
 
 ![image](https://user-images.githubusercontent.com/37566901/141504494-22c5b49f-066d-4179-9067-c8eed3f4fe1b.png)
 
-- has code [here](https://github.com/mbadge/)
+- has code [here](https://github.com/mbadge/hipsMultimodal)
