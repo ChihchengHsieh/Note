@@ -237,6 +237,15 @@ We can use the object detection model from here to do abnormality detection.
 - How can we train the model to know when to defer? (Where does the dataset come from?)
 - It use image, text and tabular data for different tasks. Therefore, it's not a case with multi-modal learning.
 
+
+### 40. [On the Composition and Limitations of Publicly Available COVID-19 X-Ray Imaging Datasets](https://arxiv.org/pdf/2008.11572.pdf)
+
+- It's a peper analysing datasets which containing or not containing Covid-19 X-Ray.
+  
+![image](https://user-images.githubusercontent.com/37566901/141441150-bf085283-19d3-4b6b-b1a4-72d3fd517c58.png)
+
+
+
 ## With clinical data
 
 ### 1. [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
