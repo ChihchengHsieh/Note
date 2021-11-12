@@ -1,3 +1,11 @@
+## Key words
+
+- [x] Medical data
+- [x] Clinical data
+- [x] EHR (Electronic Health Record)
+- [x] Tabular
+- [] Age, Gender
+
 ## No clinical data
 
 ### 1. [Predicting COVID-19 Pneumonia Severity on Chest X-ray With Deep Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7451075/)
@@ -237,18 +245,45 @@ We can use the object detection model from here to do abnormality detection.
 - How can we train the model to know when to defer? (Where does the dataset come from?)
 - It use image, text and tabular data for different tasks. Therefore, it's not a case with multi-modal learning.
 
-
 ### 40. [On the Composition and Limitations of Publicly Available COVID-19 X-Ray Imaging Datasets](https://arxiv.org/pdf/2008.11572.pdf)
 
 - It's a peper analysing datasets which containing or not containing Covid-19 X-Ray.
-  
+
 ![image](https://user-images.githubusercontent.com/37566901/141441150-bf085283-19d3-4b6b-b1a4-72d3fd517c58.png)
 
+### 41. [An empirical framework for domain generalization in clinical settings](https://dl.acm.org/doi/abs/10.1145/3450439.3451878)
 
+- Benchmarking the performance of eight domain generalization methods on multi-site clinical time series and medical imaging data.
+- Method:
+  ![image](https://user-images.githubusercontent.com/37566901/141465323-9144de69-a5a7-4f9e-9d0e-e3c60bd06fe9.png)
+  ![image](https://user-images.githubusercontent.com/37566901/141465507-541e250f-3998-46ec-8608-7fd25c9e0499.png)
+
+### 42. [LOCAL ADAPTATION IMPROVES ACCURACY OF DEEP LEARNING MODEL FOR AUTOMATED X-RAY THORACIC DISEASE DETECTION : A THAI STUDY](https://arxiv.org/pdf/2004.10975.pdf)
+
+- Predition paper using CNN.
+- Our work emphasizes the importance of investing in local research of medical diagnosis algorithms to ensure safe and efficient usage within the intended region.
+
+### 43. [An Adversarial Approach for the Robust Classification of Pneumonia from Chest Radiographs](https://dl.acm.org/doi/pdf/10.1145/3368555.3384458)
+
+- Adversarial predictions improve model interpretability by identifying potentially confounded models.
+- Adversarial training can increase model robustness by controlling for confounders
+- The problem of the medical classifier is the data shift issue.
+- when the model was tested on radiographs from a third hospital not present in the training data its performance signi!cantly decreased.
+
+### 44. [Deep learning predicts hip fracture using confounding patient and healthcare variables](https://www.nature.com/articles/s41746-019-0105-1.pdf)
+
+-
 
 ## With clinical data
 
 ### 1. [Multitask and Multimodal Neural Network Model for Interpretable Analysis of X-ray Images](https://ieeexplore.ieee.org/abstract/document/8983272?casa_token=NhxHEG444tQAAAAA:_SgP02KWPYFybvMZ6UiaFNr9dMOeYcEg-vsaQRiA8F5aI8R1YGTs4piu585ISHZ7MBVi_CvepS0)
 
 ![image](https://user-images.githubusercontent.com/37566901/141148916-3584231c-4029-4eb8-9b75-3e7d22db58d5.png)
-YOL
+
+### 2. [Deep learning predicts hip fracture using confounding patient and healthcare variables](https://www.nature.com/articles/s41746-019-0105-1.pdf)
+
+- This one using image and these variables to predict hip fractures.
+
+![image](https://user-images.githubusercontent.com/37566901/141504494-22c5b49f-066d-4179-9067-c8eed3f4fe1b.png)
+
+- has code [here](https://github.com/mbadge/)
