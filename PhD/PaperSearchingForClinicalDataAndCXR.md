@@ -270,9 +270,6 @@ We can use the object detection model from here to do abnormality detection.
 - The problem of the medical classifier is the data shift issue.
 - when the model was tested on radiographs from a third hospital not present in the training data its performance signi!cantly decreased.
 
-### 44. [Deep learning predicts hip fracture using confounding patient and healthcare variables](https://www.nature.com/articles/s41746-019-0105-1.pdf)
-
--
 
 ## With clinical data
 
