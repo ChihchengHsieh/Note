@@ -270,6 +270,90 @@ We can use the object detection model from here to do abnormality detection.
 - The problem of the medical classifier is the data shift issue.
 - when the model was tested on radiographs from a third hospital not present in the training data its performance signi!cantly decreased.
 
+### 44. [Automated Pleural Effusion Detection on Chest X-Rays](https://scholar.smu.edu/cgi/viewcontent.cgi?article=1093&context=datasciencereview)
+
+- Identify Pleural Effusion using CXR-image to feed in CNN.
+- We demonstrate that our model is able to reproduce current baseline performance for this task with a model that is 10x smaller and 30x faster.
+
+### 45. [Machine-learning-based multiple abnormality prediction with large-scale chest computed tomography volumes](https://www.sciencedirect.com/science/article/pii/S1361841520302218?casa_token=gAi-eFFtqWcAAAAA:A1eVI7vbuF9277AnK6cPPxw4cqRO1vxqx2JS6wtNsdggpO6GMePsbSquQNfy9ND7zJMsaymWjw)
+
+- Extracting labels from CT reports.
+- Using CT volume to predict the report.
+- Architecture is ResNet
+![image](https://user-images.githubusercontent.com/37566901/141604710-bc552bd9-5a5b-4111-93b1-9447df2b6ee4.png)
+
+### 46. [A deep learning method for classification of chest X-ray images](https://iopscience.iop.org/article/10.1088/1742-6596/1848/1/012030/pdf)
+
+- Using **foacl lsos function** to address the problem of inbalanced data.
+- The input is the X-ray image, and the output is the probabilities of 14 chest pathologies.
+- THe architecture is **AM_DenseNet** (proposed).
+![image](https://user-images.githubusercontent.com/37566901/141612019-2054c421-9491-43d4-a444-0255b26f6748.png)
+
+
+(Note: I feel the disease output should be 14 of binary outputs.)
+
+### 47. [CheXpert: A Large Chest Radiograph Dataset with Uncertainty Labels and Expert Comparison]()
+
+- It's a dataset from Stanford containing 224,316 chest radiographs of 65,240 patients.
+- Using a labeler to automatically detect 14 observations in radiology reports, capturing uncertainties inherent in radiograph interpretation.
+- We investigate different approaches to using the uncertainty labels for training convolutional neural networks that output the probability of these observations given the available frontal and lateral radiographs.
+  
+![image](https://user-images.githubusercontent.com/37566901/141613053-1c98aa27-f117-4948-8938-45726956ba73.png)
+
+
+### 48. [Interpreting chest X-rays via CNNs that exploit hierarchical disease dependencies and uncertainty labels](https://www.sciencedirect.com/science/article/pii/S0925231221000953?casa_token=Bz7JJ9FGya0AAAAA:LlRe4MYguYdzajncaAg5DzH3534j95DHEXJ_pkxeIwcZnV1DU7QXh18Orm1zC2sj60OzDCSM-w)
+
+- Using CXRs as input and CNN as the architecture to predict several specific pathologies.
+![image](https://user-images.githubusercontent.com/37566901/141613264-772ab78c-4a52-4917-8318-291fba189cf9.png)
+- Using **DenseNet-121**
+- Conditional training to learn dependencies among labels
+
+
+### 49. [Graph-Based Deep Learning for Medical Diagnosis and Analysis: Past, Present and Future](https://arxiv.org/abs/2105.13137)
+
+- In this survey, we thoroughly review the different types of graph architectures and their applications in healthcare. 
+- We provide an overview of these methods in a systematic manner, organized by their domain of application including functional connectivity, anatomical structure and electrical-based analysis.
+
+
+### 50. [An Extensive Survey of Machine Learning Based Approaches on Automated Pathology Detection in Chest X-Rays](https://ieeexplore.ieee.org/abstract/document/9347605?casa_token=YiJZ6KXJ1AkAAAAA:uHaE02O-fyFQQ0x7f0C2dDUgCPyxrGAtMJUrsmF3aYRjtIgYtWavL-H1tyn7v8PNM2do3GYHYPw)
+
+- This paper conducts an extensive survey on existing machine learning apporaches, it's dataset and techniques on pathology detection in chest X-Rays. 
+- Popular datasets, image processing techniques and current machine learning architecture.
+![image](https://user-images.githubusercontent.com/37566901/141647723-1b7099dd-4acc-4958-958a-8c3da3af4d66.png)
+![image](https://user-images.githubusercontent.com/37566901/141647743-9aba1615-f357-4170-b27e-b7152ab1d05d.png)
+![image](https://user-images.githubusercontent.com/37566901/141647767-477e6202-ac27-477d-b787-964bd2a9cd40.png)
+
+### 51. [Medical imaging algorithms exacerbate biases in underdiagnosis](https://assets.researchsquare.com/files/rs-151985/v1_covered.pdf?c=1631852850)
+
+- In this work we examine algorithmic underdiagnosis in chest X-ray pathology classifiers and find that classifiers consistently and selectively underdiagnose under-served patients, actively amplifying the existing biases in clinical care.
+- Our work demonstrates that deploying AI systems risks exacerbating biases present in current care practices. 
+
+![image](https://user-images.githubusercontent.com/37566901/141652912-86b531f2-bc74-4c4d-8a54-c4c143c3dee8.png)
+
+
+### 52 [Computer Assisted Reading of Chest Radiographs](https://ieeexplore.ieee.org/abstract/document/8969538?casa_token=w2oUM7160dUAAAAA:-0X1wYoQL97tlVjCS-u-b3AZXasf3HA151p4fAraPPZP8L7N_JNQsc7-H7LMM1AoyaGsKoDRLPo)
+
+- In this work we report an implementation of a deep-learning based framework to interpret the disease signature from chest X-rays. The model was trained on a large dataset consisting of both frontal and lateral X-ray images of the chest with multiple thoracic disease labels. 
+- Architecture:
+![image](https://user-images.githubusercontent.com/37566901/141653467-aaebbd34-02dd-4774-88f9-9301862f3259.png)
+- Input is CXR image (including frontal and lateral), and the output is 8 sigmoid nodes with each disease.
+- using **“Learning deep features for discriminative localization** paper to generate a colormap for localise the disease.
+
+ 
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
 
 ## With clinical data
 
