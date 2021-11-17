@@ -224,6 +224,7 @@ This one use the CXR-image to generate the bouding box. During training, it uses
 - It's a dataset paper.
 - It contains both CT (Computed Tomography) and radiograph samples of COVID-19 lung findings and combines them with additional data to ensure a sufficient number of diverse COVID-19-negative sample.
 - No tabular data we want provided.
+  
   ![image](https://user-images.githubusercontent.com/37566901/141408345-f3d5ab09-b64c-4197-8a86-9a4a72867f31.png)
 
 ### 37. [Localization of Critical Findings in Chest X-Ray Without Local Annotations Using Multi-Instance Learning](https://ieeexplore.ieee.org/abstract/document/9098551?casa_token=GieYHeav0FwAAAAA:RyXIk-4AdJmMYwssOzUhSv_JCC9U1EU7ZpXIwQUJoE48-QzWduaZb1EMux1uHY5HFhtFDxhUTCg)
@@ -255,6 +256,7 @@ We can use the object detection model from here to do abnormality detection.
 
 - Benchmarking the performance of eight domain generalization methods on multi-site clinical time series and medical imaging data.
 - Method:
+  
   ![image](https://user-images.githubusercontent.com/37566901/141465323-9144de69-a5a7-4f9e-9d0e-e3c60bd06fe9.png)
   ![image](https://user-images.githubusercontent.com/37566901/141465507-541e250f-3998-46ec-8608-7fd25c9e0499.png)
 
@@ -280,6 +282,7 @@ We can use the object detection model from here to do abnormality detection.
 - Extracting labels from CT reports.
 - Using CT volume to predict the report.
 - Architecture is ResNet
+  
 ![image](https://user-images.githubusercontent.com/37566901/141604710-bc552bd9-5a5b-4111-93b1-9447df2b6ee4.png)
 
 ### 46. [A deep learning method for classification of chest X-ray images](https://iopscience.iop.org/article/10.1088/1742-6596/1848/1/012030/pdf)
@@ -287,6 +290,7 @@ We can use the object detection model from here to do abnormality detection.
 - Using **foacl lsos function** to address the problem of inbalanced data.
 - The input is the X-ray image, and the output is the probabilities of 14 chest pathologies.
 - THe architecture is **AM_DenseNet** (proposed).
+  
 ![image](https://user-images.githubusercontent.com/37566901/141612019-2054c421-9491-43d4-a444-0255b26f6748.png)
 
 
@@ -304,6 +308,7 @@ We can use the object detection model from here to do abnormality detection.
 ### 48. [Interpreting chest X-rays via CNNs that exploit hierarchical disease dependencies and uncertainty labels](https://www.sciencedirect.com/science/article/pii/S0925231221000953?casa_token=Bz7JJ9FGya0AAAAA:LlRe4MYguYdzajncaAg5DzH3534j95DHEXJ_pkxeIwcZnV1DU7QXh18Orm1zC2sj60OzDCSM-w)
 
 - Using CXRs as input and CNN as the architecture to predict several specific pathologies.
+  
 ![image](https://user-images.githubusercontent.com/37566901/141613264-772ab78c-4a52-4917-8318-291fba189cf9.png)
 - Using **DenseNet-121**
 - Conditional training to learn dependencies among labels
@@ -319,6 +324,7 @@ We can use the object detection model from here to do abnormality detection.
 
 - This paper conducts an extensive survey on existing machine learning apporaches, it's dataset and techniques on pathology detection in chest X-Rays. 
 - Popular datasets, image processing techniques and current machine learning architecture.
+  
 ![image](https://user-images.githubusercontent.com/37566901/141647723-1b7099dd-4acc-4958-958a-8c3da3af4d66.png)
 ![image](https://user-images.githubusercontent.com/37566901/141647743-9aba1615-f357-4170-b27e-b7152ab1d05d.png)
 ![image](https://user-images.githubusercontent.com/37566901/141647767-477e6202-ac27-477d-b787-964bd2a9cd40.png)
@@ -335,6 +341,7 @@ We can use the object detection model from here to do abnormality detection.
 
 - In this work we report an implementation of a deep-learning based framework to interpret the disease signature from chest X-rays. The model was trained on a large dataset consisting of both frontal and lateral X-ray images of the chest with multiple thoracic disease labels. 
 - Architecture:
+  
 ![image](https://user-images.githubusercontent.com/37566901/141653467-aaebbd34-02dd-4774-88f9-9301862f3259.png)
 - Input is CXR image (including frontal and lateral), and the output is 8 sigmoid nodes with each disease.
 - using **“Learning deep features for discriminative localization** paper to generate a colormap for localise the disease.
