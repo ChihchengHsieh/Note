@@ -4,7 +4,7 @@
 - [x] Clinical data
 - [x] EHR (Electronic Health Record)
 - [x] Tabular
-- [] Age, Gender
+- [x] Age, Gender
 
 ## No clinical data
 
