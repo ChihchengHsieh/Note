@@ -63,7 +63,7 @@ Explainable artificial intelligence (XAI) is a set of approaches to extract the 
 
 
 % p.6 The gap of current XAI method. (different user group.)
-In the work of CheXNet \citep{Rajpurkar2017CheXNet} and CheXNeXt \citep{Rajpurkar2018CheXNeXt}, Class Activation Mappings (CAMs) \citep{Zhou2015CAM} is used for generating heatmaps to show important features during classification. Then they observe that CAMs can successfully localise the pathologies it identified. However, this approach of interpretation can be inconsistent. \citet{Saporta2021BechmarkingSaliencyMethods} conducted a human benchmark to evaluate current saliency methods, which includes GradCAM, GradCAM ++ and Integrated Gradient. The evaluation result shows the saliency methods perform significantly worse than professional radiologists. Therefore, before applying medical AI system on the real cases, multiple issues has to be solved or mitigated to ensure the reliability. \\
+In the work of CheXNet \citep{Rajpurkar2017CheXNet} and CheXNeXt \citep{Rajpurkar2018CheXNeXt}, Class Activation Mappings (CAMs) \citep{Zhou2015CAM} is used for generating heatmaps to show important features during classification. Then they observe that CAMs can successfully localise the pathologies it identified. However, this approach of interpretation can be inconsistent. \citet{Saporta2021BechmarkingSaliencyMethods} conducted a human benchmark to evaluate current saliency methods, which includes GradCAM, GradCAM ++ and Integrated Gradient. The evaluation result shows the saliency methods perform significantly worse than professional radiologists. Therefore, before applying medical AI system on the real cases, multiple issues have to be solved or mitigated to ensure the reliability. \\
 
 % p.6 How would I like to close the gap.
 To close the gap of current XAI methods on chest X-ray image, we want to apply multi-modal learning \citep{Ngiam2011MultiModalLearning}. Instead only providing image and diagnosis to the model, other modalities, such as eye tracking data, report text, bounding boxes and clinical data can also be included, as shown in Table \ref{tab:modalities_table}. In this work, we will mainly use the data from 6 different datasets. MIMIC-IV \citep{Johnson2021MIMIC_IV} and MIMIC-ED \citep{Johnson2021MIMIC_IV_ED} provide the clinical data about the patients. MIMIC-CXR \citep{Johnson2019MIMIC_CXR} and MIMIC-CXR-JPG \citep{DJohnson2019MIMIC_CXR_JPG} contain the CXR images and the report text from the hospital where patients took CXR . Eye gaze data \citep{Karargyris2020EyeGazeDataset} includes eye tracking data, segmentation maps, bounding boxes, dictation audio and its transcription. Moreover, REFLACX dataset \citep{Lanfredi2021REFLACX} offers another set of eye tracking information, anomaly locations ellipses, dictation audio and transcription. There are three main reasons why different modalities should be involved. Firstly, we argue that the model can be more gain better performance through receiving more information. Richer information can facilitate the classification process and boosts the robustness of model. Secondly, we believe human recognition pattern can be extracted from the fixation information. And, the fixation information itself or the extracted pattern can be used for improving both performance and explainability. At the last, some of the modalities can be served as both input and output. For instance, \citet{Karargyris2021EyeGazePaper} implement two experiments is their work. One of them feeds fixation information as input to boost the AUC. At another work, eye gaze data is used as a label in output section, which require the model to predict where the radiologists will look at and focus on. Generally, the sight of the radiologists can help us to localise the pathologies, which enhances the explainability of model. The overall framework has been shown in Figure \ref{fig: proposed_framework}. The modalities with dashed border can serve as input or output. Additionally, the four output modalities with blue background are those can provide explainability. These are: eye tracking information, report text, audio \& transcription and anomaly location ellipse.\\
@@ -104,29 +104,91 @@ This PhD targets on developing a multi-modal learning framework for medical imag
     \caption{\textbf{Modalities can be included in this work.}} % put citation here.
     \label{tab:modalities_table}
 \end{longtable}
-
-
-
-
 % \end{table}
-% ! Need to put some graphs.
-% 0. Road path graph.
 
-% 1. Background and introducing AI in generic.
-% 2. Talking about the AI in medical fields.
-% 3. Why the medical AI need explanation? because of the decisions in medical cases are important.
-% 4. Talking about recent papers.
-% 5. 
 
-% There are 2 gaps  we want to close.
-% (1) We want to close the gap of explanation on medical decision makings.
-% (2) We want to close the gap of using medical data in AI prediction.
+\subsection{Thesis Core Concepts}
+The associated basic concpetes on which this project is based are explained in this section to provide the reader a clear understading of this research work:
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+    \item \textbf{Itepretability and explainability:} \\ The difference between interpretability and explainability is subtle. When we assume that a model is interpretable, it often means that the model is a whitebox and can elaborate its reasoning. On the other hand, an explainable model is a blackbox model with an explanatory method to proivde insight into its decisions \citep{doshivelez2017RigorousInterpretable}. In most of the papers, however, they're used interchangeably. Hence, in this wrok, we will not ephasise the difference between them and consider them to be mutually replaceable. \\
+    \item \textbf{Blackbox and whitebox models:} \\ The model based on pattern, rules or decision tree are considered white-box models, such as linear regression and logistic regression. These models provide their decision making process to users in a human comprehensible manner. On the other hand, in order to increase the capability of machine learning model, non-linearity and other complex mathematical functions have been added to the predicitive algorithms, which significantly damages the explainability \citep{LoyolaGonzalez2019BlackBoxVsWhiteBox}. Although  these models can fit complex distributions that result a higher performance on accuracy, the loss of interpretation raises reliability concerns.\\
+    \item \textbf{Moti-modal learning:} \\ Modality refers to the way something happens or is experienced. And the word, \textit{sensory modalities}, stands for our primary communication and sensory channels such as seeing, hearing and touching. A research problem or a data setis therefore referred to as multimodal if it comprises several such modalities. Additionally, if a machine learning model has the ability to process related information from more than one modality, we consider it to be an implementation of multimodal learning \citep{Baltrušaitis2019MutimodalSurvey}. \\
+    \item \textbf{Multi-task learning:} \\ In general, a multi-task learning refers to the learning task where more than one loss function are used for optimization. The terms, \textit{joint learning}, \textit{learning to learn} and \textit{learning with auxiliary tasks} are only some other names of multi-task learning. Multi-modal learning is mainly used to improve the peformance of generalization throguh sharing the representations between related tasks \citep{Ruder2017MultitaskLearning}.\\
+    \item \textbf{What else?}
+\end{itemize}
 
-\subsection{}
+
+%% 1. List all the literatures we can talk about. divide them in different section.
 
 \subsection{Literature Review}
+
+In order to gain a deep understanding of the existing work, a literature search is carried out to examine current theses. In this section, we categorise the literature into five different groups including (1) XAI, (2) Medical AI, (3) XAI on Medical Tasks, (4) Multi-Modal Learning (5) Multi-Task Learning. Finally, key findings from the literature are discussed in the last section.
+
+\subsubsection{Explainable AI (XAI)}
+
+XAI is a set of methods that enable people to understand and trust the decisions made by machine learning algorithms. An overview of the XAI approach was clearly presented in the work of \citet{Belle2020XAIPriciples}. In the area of ​XAI, the approaches can initially be divided into transparent and opaque models, which are referred to as white box or black box models. The transparent models consist of the algorithms that are capable of self-reasoning. These whitebox models reveal their decision-making process or their decision-making boundaries to users once it has been trained. Since transparent models can explain themselves, an additional explanation algorithm is not necessary. On the flip side, the opaque model hardly provides any explanation for its output when it performs amazingly in terms of accuracy. In order to achieve desirable predictive performance while being reliable, most of the researches are conducted to explain these blackbox models. Post-hoc explainability is the method that is applied on a learned model without interfering the training process, which has the advatage not adversely affecting the model's performance \citep{Karlo2018XAISurvey} \citep{Belle2020XAIPriciples}. \\
+
+The post-hoc explanations can be further seperated to two categories, inlclding \textit{model-agnostic} and \textit{model-specific}. The model-agnostic treat the original model as a black box and only require the input and output of the model to explain individual prediction \citep{Ribeiro2016Modelagnostic} \citep{Karlo2018XAISurvey} \citep{Ribeiro2018Anchors}. And, the model-specific approach,  
+
+\\
+\\
+\\
+%%%%%%%%%%%%%% Materials %%%%%%%%%%%%%%
+since model-agnostic approaches are usually widely
+used and compatible with various popular libraries, whereas
+model-specific ones are emerging and fewer, \citep{Belle2020XAIPriciples}
+
+GradCAM => Model Specific 
+Self-Attention => Model Specific
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{./images/XAI-Overview.png}
+    \caption{Overview of XAI. \citet{Belle2020XAIPriciples}}
+    \label{fig: XAI_Overview}
+\end{figure}
+
+\subsubsection{Meidcal AI}
+% We can talk about medical dataset in this section.
+
+\subsubsection{XAI on Medical Predictive Task}
+
+\subsubsection{Muti-Modal Learning}
+
+\subsubsection{Multi-Task Learning}
+
+
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{./images/ThisWorkCover.png}
+    \caption{Venn diagram of this work.}
+    \label{fig: this_work_cover}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{./images/LIME_ExampleOnCXR.png}
+    \caption{LIME example on Chest X-ray images. \citep{Teixeira2021LIMEAndGradCAMOnCXR}}
+    \label{fig: LIME_ExampleOnCXR}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{./images/GradCAMExample_OnCXR.png}
+    \caption{GradCAM example on Chest X-ray images. \citep{Teixeira2021LIMEAndGradCAMOnCXR}}
+    \label{fig: GradCAMExample_OnCXR}
+\end{figure}
+
+\citep{Ruder2017MultitaskLearning}
+
+
+
+
+
+
 
 %% List the sections that I need to do literature review on.
 
