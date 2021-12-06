@@ -85,22 +85,22 @@ This PhD targets on developing a multi-modal learning framework for medical imag
 % \centering
 \begin{longtable}{|m{10em}|m{30em}|}
     \hline
-    Modality                                    & Example                                                                                            \\ \hline
-    Chest X-ray                                 & \begin{center}\includegraphics[width=.3\textwidth]{images/CXR-image.jpg}\end{center}               \\ \hline
-    Report text                                 & \begin{center}\includegraphics[width=.6\textwidth]{images/ReportText.png}\end{center}              \\ \hline
-    Eye tracking data                           & \begin{center}\includegraphics[width=.6\textwidth]{images/Fixation.png}\end{center}
+    Modality                                                                           & Example                                                                                            \\ \hline
+    Chest X-ray \citep{Johnson2019MIMIC_CXR} \citep{DJohnson2019MIMIC_CXR_JPG}         & \begin{center}\includegraphics[width=.3\textwidth]{images/CXR-image.jpg}\end{center}               \\ \hline
+    Report text \citep{Johnson2019MIMIC_CXR} \citep{DJohnson2019MIMIC_CXR_JPG}         & \begin{center}\includegraphics[width=.6\textwidth]{images/ReportText.png}\end{center}              \\ \hline
+    Eye tracking data \citep{Karargyris2020EyeGazeDataset} \citep{Lanfredi2021REFLACX} & \begin{center}\includegraphics[width=.6\textwidth]{images/Fixation.png}\end{center}
     \\ \hline
-    Segmentation of 4 key anatomical structures & \begin{center}\includegraphics[width=.3\textwidth]{images/SegmentationMap.png}\end{center}
+    Segmentation of 4 key anatomical structures  \citep{Karargyris2020EyeGazeDataset}  & \begin{center}\includegraphics[width=.3\textwidth]{images/SegmentationMap.png}\end{center}
     \\ \hline
-    Bounding boxes of 17 anatomical structures  & \begin{center}\includegraphics[width=.3\textwidth]{images/EyeGazeBoundingBox.png}\end{center}
+    Bounding boxes of 17 anatomical structures  \citep{Karargyris2020EyeGazeDataset}   & \begin{center}\includegraphics[width=.3\textwidth]{images/EyeGazeBoundingBox.png}\end{center}
     \\ \hline
-    Anomaly location ellipses                   & \begin{center}\includegraphics[width=.3\textwidth]{images/AnomalyLocationEllipses.png}\end{center}
+    Anomaly location ellipses \citep{Lanfredi2021REFLACX}                              & \begin{center}\includegraphics[width=.3\textwidth]{images/AnomalyLocationEllipses.png}\end{center}
     \\ \hline
-    Clinical Data                               &
-    patients' age, gender, temperature, heat rate, respiratory rate, oxygen saturation, systolic/ diastolic blood pressure, pain level, etc.         \\ \hline
-    Dictation audio                             & The audio recorded when the radiologists is interpreting chest X-ray images.
+    Clinical Data  \citep{Johnson2021MIMIC_IV} \citep{Johnson2021MIMIC_IV_ED}          &
+    patients' age, gender, temperature, heat rate, respiratory rate, oxygen saturation, systolic/ diastolic blood pressure, pain level, etc.                                                \\ \hline
+    Dictation audio \citep{Karargyris2020EyeGazeDataset}                               & The audio recorded when the radiologists is interpreting chest X-ray images.
     \\ \hline
-    Transcription                               & Recorded audio is automatically transcribed into a json file including word timestamp.             \\ \hline
+    Transcription \citep{Karargyris2020EyeGazeDataset} \citep{Lanfredi2021REFLACX}     & Recorded audio is automatically transcribed into a json file including word timestamp.             \\ \hline
     \caption{\textbf{Modalities can be included in this work.}} % put citation here.
     \label{tab:modalities_table}
 \end{longtable}
@@ -114,7 +114,7 @@ The associated basic concpetes on which this project is based are explained in t
     \item \textbf{Itepretability and explainability:} \\ The difference between interpretability and explainability is subtle. When we assume that a model is interpretable, it often means that the model is a whitebox and can elaborate its reasoning. On the other hand, an explainable model is a blackbox model with an explanatory method to proivde insight into its decisions \citep{doshivelez2017RigorousInterpretable}. In most of the papers, however, they're used interchangeably. Hence, in this wrok, we will not ephasise the difference between them and consider them to be mutually replaceable. \\
     \item \textbf{Blackbox and whitebox models:} \\ The model based on pattern, rules or decision tree are considered white-box models, such as linear regression and logistic regression. These models provide their decision making process to users in a human comprehensible manner. On the other hand, in order to increase the capability of machine learning model, non-linearity and other complex mathematical functions have been added to the predicitive algorithms, which significantly damages the explainability \citep{LoyolaGonzalez2019BlackBoxVsWhiteBox}. Although  these models can fit complex distributions that result a higher performance on accuracy, the loss of interpretation raises reliability concerns.\\
     \item \textbf{Moti-modal learning:} \\ Modality refers to the way something happens or is experienced. And the word, \textit{sensory modalities}, stands for our primary communication and sensory channels such as seeing, hearing and touching. A research problem or a data setis therefore referred to as multimodal if it comprises several such modalities. Additionally, if a machine learning model has the ability to process related information from more than one modality, we consider it to be an implementation of multimodal learning \citep{Baltrušaitis2019MutimodalSurvey}. \\
-    \item \textbf{Multi-task learning:} \\ In general, a multi-task learning refers to the learning task where more than one loss function are used for optimization. The terms, \textit{joint learning}, \textit{learning to learn} and \textit{learning with auxiliary tasks} are only some other names of multi-task learning. Multi-modal learning is mainly used to improve the peformance of generalization throguh sharing the representations between related tasks \citep{Ruder2017MultitaskLearning}.\\
+          % \item \textbf{Multi-task learning:} \\ In general, a multi-task learning refers to the learning task where more than one loss function are used for optimization. The terms, \textit{joint learning}, \textit{learning to learn} and \textit{learning with auxiliary tasks} are only some other names of multi-task learning. Multi-modal learning is mainly used to improve the peformance of generalization throguh sharing the representations between related tasks \citep{Ruder2017MultitaskLearning}.\\
     \item \textbf{What else?}
 \end{itemize}
 
@@ -129,7 +129,30 @@ In order to gain a deep understanding of the existing work, a literature search 
 
 XAI is a set of methods that enable people to understand and trust the decisions made by machine learning algorithms. An overview of the XAI approach was clearly presented in the work of \citet{Belle2020XAIPriciples}. In the area of ​XAI, the approaches can initially be divided into transparent and opaque models, which are referred to as white box or black box models. The transparent models consist of the algorithms that are capable of self-reasoning. These whitebox models reveal their decision-making process or their decision-making boundaries to users once it has been trained. Since transparent models can explain themselves, an additional explanation algorithm is not necessary. On the flip side, the opaque model hardly provides any explanation for its output when it performs amazingly in terms of accuracy. In order to achieve desirable predictive performance while being reliable, most of the researches are conducted to explain these blackbox models. Post-hoc explainability is the method that is applied on a learned model without interfering the training process, which has the advatage not adversely affecting the model's performance \citep{Karlo2018XAISurvey} \citep{Belle2020XAIPriciples}. \\
 
-The post-hoc explanations can be further seperated to two categories, inlclding \textit{model-agnostic} and \textit{model-specific}. The model-agnostic treat the original model as a black box and only require the input and output of the model to explain individual prediction \citep{Ribeiro2016Modelagnostic} \citep{Karlo2018XAISurvey} \citep{Ribeiro2018Anchors}. And, the model-specific approach,  
+The post-hoc explanations can be further seperated to two categories, inlclding \textit{model-agnostic} and \textit{model-specific}. The model-agnostic treat the original model as a black box and only require the input and output of the model to explain individual prediction \citep{Ribeiro2016Modelagnostic} \citep{Karlo2018XAISurvey} \citep{Ribeiro2018Anchors}. Some widely used model-agnostic methods are listed and introduced bewlow, which includes LIME\citep{Ribeiro2016LIME}, SHAP\citep{Lundberg2017SHAP}, LINDA-BN\citep{Moreira2021LINDA} and ANCHORS\citep{Ribeiro2018Anchors}:
+
+\begin{itemize}
+    \item \textbf{LIME:} \\ Local Interpretable Modal-agnostic Explaination (LIME) is to firstly generate a set of perturbed samples with associated lables around the input. And an interpretable model, such as decision or logistic regression, will be trained on the permutation dataset to approximate the original model in the local area. In another word, $f$ and $x$ are the original model and the input respectively. Then the LIME algorithm is trying to find an interpretable mode, $g$ to ensure $g(z^{'}) \approx f(h_{x}(z^{'}))$ where $z^{'} \approx x^{'}$. And $h_{x}$ is a mapping function $x = h_{x}(x^{'})$. The feature importance can therfore be extracted from the linear surrogate model to explain which important features leads to this decision, as shown in figure \ref{fig: LIME_ExampleOnCXR}.\\
+    \item \textbf{SHAP:} \\ In 2017, \citet{Lundberg2017SHAP} unified 6 existing XAI methods that are using similar explanation method, including LIME, DeepLIFT, layer-wise relevance propagation, Shapley regression value, Shapley sampling value and Quantitative Input Influence. In that work, they propse SHapley Additive exPlanations (SHAP) values as a unified measure of feasture importance. It uses the Shapley value from game thoery to assign each feature an importance value for a particular predcition. At the point they're preparing the releasement, they also found a similar work pubished in economic field \citep{Charnes1988ShapeleyValueInEconomic}. \\
+    \item \textbf{LINDA-BN:} \\ Local Interpretation-Driven Abstract Bayesian Network (LINDA-BN) is a framework using the probalistic graphical model to approximate the blackbox model in local area around input. Similiar to LIME, a local perturbed samples are generated with the prediction of the original as label to form a permutation dataset. Then this dataset will be used to train a Bayersian Network (BN). From the BN, it can explain about how each feature contribute to the result of this prediction, shown as Figure \ref{fig: LINDA-BN_diabetes}. Moreover, since the nature of the graphical model, correlations between input features can also be explored.  \citep{Moreira2021LINDA}.
+    \item \textbf{ANCHORS:} \\ 
+\end{itemize}
+
+
+
+On the other hand, model-specific approaches are those that require specific architecture of model in order to generate explaination. The main advantage of model specific methods is the facilitation of development on effeicnet algorithm based on the explaination we observed \citep{Belle2020XAIPriciples}.
+
+
+
+% LIME
+% SHAP
+% LINDA
+% ANCHOR
+
+%-----------------%
+
+% GradCAM
+% 
 
 \\
 \\
@@ -139,7 +162,7 @@ since model-agnostic approaches are usually widely
 used and compatible with various popular libraries, whereas
 model-specific ones are emerging and fewer, \citep{Belle2020XAIPriciples}
 
-GradCAM => Model Specific 
+GradCAM => Model Specific
 Self-Attention => Model Specific
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -156,9 +179,6 @@ Self-Attention => Model Specific
 \subsubsection{XAI on Medical Predictive Task}
 
 \subsubsection{Muti-Modal Learning}
-
-\subsubsection{Multi-Task Learning}
-
 
 
 \begin{figure}[!h]
@@ -180,6 +200,13 @@ Self-Attention => Model Specific
     \includegraphics[width=\textwidth]{./images/GradCAMExample_OnCXR.png}
     \caption{GradCAM example on Chest X-ray images. \citep{Teixeira2021LIMEAndGradCAMOnCXR}}
     \label{fig: GradCAMExample_OnCXR}
+\end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{./images/LINDA-BN.png}
+    \caption{LINDA-BN explains why a patient is predcited not having diabetes. \citep{Moreira2021LINDA}}
+    \label{fig: LINDA-BN_diabetes}
 \end{figure}
 
 \citep{Ruder2017MultitaskLearning}
