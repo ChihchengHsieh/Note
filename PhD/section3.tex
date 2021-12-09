@@ -66,7 +66,7 @@ Explainable artificial intelligence (XAI) is a set of approaches to extract the 
 In the work of CheXNet \citep{Rajpurkar2017CheXNet} and CheXNeXt \citep{Rajpurkar2018CheXNeXt}, Class Activation Mappings (CAMs) \citep{Zhou2015CAM} is used for generating heatmaps to show important features during classification. Then they observe that CAMs can successfully localise the pathologies it identified. However, this approach of interpretation can be inconsistent. \citet{Saporta2021BechmarkingSaliencyMethods} conducted a human benchmark to evaluate current saliency methods, which includes GradCAM, GradCAM ++ and Integrated Gradient. The evaluation result shows the saliency methods perform significantly worse than professional radiologists. Therefore, before applying medical AI system on the real cases, multiple issues have to be solved or mitigated to ensure the reliability. \\
 
 % p.6 How would I like to close the gap.
-To close the gap of current XAI methods on chest X-ray image, we want to apply multi-modal learning \citep{Ngiam2011MultiModalLearning}. Instead only providing image and diagnosis to the model, other modalities, such as eye tracking data, report text, bounding boxes and clinical data can also be included, as shown in Table \ref{tab:modalities_table}. In this work, we will mainly use the data from 6 different datasets. MIMIC-IV \citep{Johnson2021MIMIC_IV} and MIMIC-ED \citep{Johnson2021MIMIC_IV_ED} provide the clinical data about the patients. MIMIC-CXR \citep{Johnson2019MIMIC_CXR} and MIMIC-CXR-JPG \citep{DJohnson2019MIMIC_CXR_JPG} contain the CXR images and the report text from the hospital where patients took CXR . Eye gaze data \citep{Karargyris2020EyeGazeDataset} includes eye tracking data, segmentation maps, bounding boxes, dictation audio and its transcription. Moreover, REFLACX dataset \citep{Lanfredi2021REFLACX} offers another set of eye tracking information, anomaly locations ellipses, dictation audio and transcription. There are three main reasons why different modalities should be involved. Firstly, we argue that the model can be more gain better performance through receiving more information. Richer information can facilitate the classification process and boosts the robustness of model. Secondly, we believe human recognition pattern can be extracted from the fixation information. And, the fixation information itself or the extracted pattern can be used for improving both performance and explainability. At the last, some of the modalities can be served as both input and output. For instance, \citet{Karargyris2021EyeGazePaper} implement two experiments is their work. One of them feeds fixation information as input to boost the AUC. At another work, eye gaze data is used as a label in output section, which require the model to predict where the radiologists will look at and focus on. Generally, the sight of the radiologists can help us to localise the pathologies, which enhances the explainability of model. The overall framework has been shown in Figure \ref{fig: proposed_framework}. The modalities with dashed border can serve as input or output. Additionally, the four output modalities with blue background are those can provide explainability. These are: eye tracking information, report text, audio \& transcription and anomaly location ellipse.\\
+To close the gap of current XAI methods on chest X-ray image, we want to apply multi-modal learning \citep{Ngiam2011MultiModalLearning}.  \citet{Castillo2020ClinicalInformationOnRadiology} found the clinical information communicated to the radiologist can improve interpretation accuracy, clinical relevance and reporting confidence. Since the positive impact of clinical information on radiology report, it should be inlcuded as a input of model to facilitate the decision making process. Instead only providing CXR images to the model, other modalities, such as eye tracking data, report text, bounding boxes and clinical data can also be included, as shown in Table \ref{tab:modalities_table}. In this work, we will mainly use the data from 6 different datasets. MIMIC-IV \citep{Johnson2021MIMIC_IV} and MIMIC-ED \citep{Johnson2021MIMIC_IV_ED} provide the clinical data about the patients. MIMIC-CXR \citep{Johnson2019MIMIC_CXR} and MIMIC-CXR-JPG \citep{DJohnson2019MIMIC_CXR_JPG} contain the CXR images and the report text from the hospital where patients took CXR . Eye gaze data \citep{Karargyris2020EyeGazeDataset} includes eye tracking data, segmentation maps, bounding boxes, dictation audio and its transcription. Moreover, REFLACX dataset \citep{Lanfredi2021REFLACX} offers another set of eye tracking information, anomaly locations ellipses, dictation audio and transcription. There are three main reasons why different modalities should be involved. Firstly, we argue that the model can be more gain better performance through receiving more information. Richer information can facilitate the classification process and boosts the robustness of model. Secondly, we believe human recognition pattern can be extracted from the fixation information. And, the fixation information itself or the extracted pattern can be used for improving both performance and explainability. At the last, some of the modalities can be served as both input and output. For instance, \citet{Karargyris2021EyeGazePaper} implement two experiments is their work. One of them feeds fixation information as input to boost the AUC. At another work, eye gaze data is used as a label in output section, which require the model to predict where the radiologists will look at and focus on. Generally, the sight of the radiologists can help us to localise the pathologies, which enhances the explainability of model. The overall framework has been shown in Figure \ref{fig: proposed_framework}. The modalities with dashed border can serve as input or output. Additionally, the four output modalities with blue background are those can provide explainability. These are: eye tracking information, report text, audio \& transcription and anomaly location ellipse.\\
 
 % p.7 Aims of the PhD
 This PhD targets on developing a multi-modal learning framework for medical images. The modalities that can be included in pre-training or training phase are chest X-ray image, report text, eye tracking information, utterance of report, segmentation and bounding boxes. Within the framework, an explaination method will be delivered to interpret the computational result of the model, which can helps human to comprehend how the model make decisions. Therefore, the overall function of the framework is to provide a system of explainable Automated chest radiograph interpretation. \\
@@ -135,36 +135,21 @@ The post-hoc explanations can be further seperated to two categories, inlclding 
     \item \textbf{LIME:} \\ Local Interpretable Modal-agnostic Explaination (LIME) is to firstly generate a set of perturbed samples with associated lables around the input. And an interpretable model, such as decision or logistic regression, will be trained on the permutation dataset to approximate the original model in the local area. In another word, $f$ and $x$ are the original model and the input respectively. Then the LIME algorithm is trying to find an interpretable mode, $g$ to ensure $g(z^{'}) \approx f(h_{x}(z^{'}))$ where $z^{'} \approx x^{'}$. And $h_{x}$ is a mapping function $x = h_{x}(x^{'})$. The feature importance can therfore be extracted from the linear surrogate model to explain which important features leads to this decision, as shown in figure \ref{fig: LIME_ExampleOnCXR}.\\
     \item \textbf{SHAP:} \\ In 2017, \citet{Lundberg2017SHAP} unified 6 existing XAI methods that are using similar explanation method, including LIME, DeepLIFT, layer-wise relevance propagation, Shapley regression value, Shapley sampling value and Quantitative Input Influence. In that work, they propse SHapley Additive exPlanations (SHAP) values as a unified measure of feasture importance. It uses the Shapley value from game thoery to assign each feature an importance value for a particular predcition. At the point they're preparing the releasement, they also found a similar work pubished in economic field \citep{Charnes1988ShapeleyValueInEconomic}. \\
     \item \textbf{LINDA-BN:} \\ Local Interpretation-Driven Abstract Bayesian Network (LINDA-BN) is a framework using the probalistic graphical model to approximate the blackbox model in local area around input. Similiar to LIME, a local perturbed samples are generated with the prediction of the original as label to form a permutation dataset. Then this dataset will be used to train a Bayersian Network (BN). From the BN, it can explain about how each feature contribute to the result of this prediction, shown as Figure \ref{fig: LINDA-BN_diabetes}. Moreover, since the nature of the graphical model, correlations between input features can also be explored.  \citep{Moreira2021LINDA}.
-    \item \textbf{ANCHORS:} \\ 
+    \item \textbf{ANCHORS:} \\ \citet{Ribeiro2018Anchors} argue that the explainer with ability to interpret locally is not ideal, as the coverage of these explainers is not clear. People tend to assume that the condition can be applied on other unseens instances, which is not always the case. The authors therefore proposed ANCHORS to fill the gap in existing explainer. ANCHORS is if-then rule-based algorithm to find the rule that sufficiently \textit{anchors} the prediction locally, which means that changing other features that are not anchors does not affect the prediction result. It can explain the behavoiur of complex mocels with high precision rules. The most obvious benefit is the clear coverage that is applied when the anchors are untouched.
 \end{itemize}
 
+On the other hand, model-specific approaches are those that require specific architecture of model in order to generate explaination. The main advantage of model specific methods is the facilitation of development on effeicnet algorithm based on the explaination we observed \citep{Belle2020XAIPriciples}. In the following, we will list out three model-spefic explainers that are widely used in computer vision task \citep{Spinner2020explAIner}, inlcuding GradCAM\citep{Selvaraju2017GradCAM}, Integrated Gradients\citep{Sundararajan2017IntegratedGradient} and DeepLIFT\citep{Shrikumar2017DeepLIFT}.
 
 
-On the other hand, model-specific approaches are those that require specific architecture of model in order to generate explaination. The main advantage of model specific methods is the facilitation of development on effeicnet algorithm based on the explaination we observed \citep{Belle2020XAIPriciples}.
+\begin{itemize}
+    \item \textbf{Grad-CAM}: \\ Gradient-weighted Class Activation Mapping (Grad-CAM) is an explainer desinged specific for Convolutional Neural Network (CNN). It generalise CAM \citep{Zhou2015CAM} to be used on variety of CNN-based architecture. GradCAM uses back-propagation to track gradient in the last CNN layer to visualise the semantics it captured \citep{Selvaraju2017GradCAM}, show as Figure \ref{fig: GradCAMExample_OnCXR}. Another work, Grad-CAM++ \citep{Chattopadhay2018GradCAM}, further improve GradCAM through considiring penultimate layer of CNN and updating global avarage pooling. This improvement solve 2 issues on GradCAM, inlcuding (1) only part of the object can be localised and (2) object with multiple occurences can't be localised properly.
+    \item \textbf{Integrated Gradients:} \\ \citet{Sundararajan2017IntegratedGradient} propsed 2 axioms that should be satisfied by every attribution method, inlcuding \textit{sensitivity} and \textit{Implementation of invariance}. The axiom of sensitivity can be satisfied if an function depend on some variables, then the attribution to those variables are always zero, and vice versa. And the axiom of inplementation invariance is satisfied when the outputs of two models are equal for all inputs, regardless the difference in implementation. And \textit{integrated gradient} is inspired by these two axioms. The most remarkable advantage of integrated gradient is that it doesn't require a specific model architecture as long as the model is differentiable. Integrated gradients are defined as the path intergral of the gradients along the straighline path from baseline to input.
+    \item \textbf{DeepLIFT:} \\ Deep Learning Important FeaTure (DeepLIFT) \citep{Shrikumar2017DeepLIFT} uses back-propagation to decompose the output of the model and reveal the contribution of each input feature. Moreover, it discovers the depdencies between features through considering positive and negative contributions seperatelly. In order to address the problem of saturation, the \textbf{summation-to-delta} property (Eq. \ref{eq: summation-to-delta}) is proposed, where $C_{\Delta x_{i} \Delta t}$ is the amount of difference in output attributed to the difference of $x_{i}$.
+\end{itemize}
 
-
-
-% LIME
-% SHAP
-% LINDA
-% ANCHOR
-
-%-----------------%
-
-% GradCAM
-% 
-
-\\
-\\
-\\
-%%%%%%%%%%%%%% Materials %%%%%%%%%%%%%%
-since model-agnostic approaches are usually widely
-used and compatible with various popular libraries, whereas
-model-specific ones are emerging and fewer, \citep{Belle2020XAIPriciples}
-
-GradCAM => Model Specific
-Self-Attention => Model Specific
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{equation} \label{eq: summation-to-delta}
+    \sum_{i=1}^{n} C_{\Delta x_{i} \Delta t} = \Delta t
+\end{equation}
 
 \begin{figure}[!h]
     \centering
@@ -173,45 +158,78 @@ Self-Attention => Model Specific
     \label{fig: XAI_Overview}
 \end{figure}
 
-\subsubsection{Meidcal AI}
-% We can talk about medical dataset in this section.
+\subsubsection{Automated predictive system on Chest X-ray interpretation}
+
+With the flourishing development on AI, the medical industry is beginning to explore the potential of machine learning to assist diagnostic  process. Chest X-ray is one of the safest and most frequent method to diagnosis patients; hence, the Computer-Aided Diagnosis (CAD) on CXR images is a popular field that researchers are investing. Before discussing the performance, the evaluation matrix should be defined. In the normal image classification tasks, accuracy is prefered matric to evaluate learning algorithms since \citep{Lobo2008AUDIsWrong} have proven the ineffectiveness of AUC on some cases. On the other hand, The area under ROC (receiver operating charactics) curve, as konwn as AUC, is used in medical diagnosis since 1970s \citep{Huang2005AUC}. Medical diagnosis require the model to have high recall and precision to minimise the amount of false-negative cases because it has more seroius consequence than a false-positive case. In order to mitigate patient's risk, most of medical predictive algorithms are evaluated by AUC \citep{HajianTilaki2013AUDOnMedical}. Since the difference in evaluating methods, the loss functions in medical fields are adapted, such as pairwise surrogate loss\citep{Gao2012SSurrogatelossAUC}, pairwise square loss\citep{Gao2013AUCSquareLoss}and Deep AUC Maximisation (DAM) \citep{Sulam2017MaximizingAUD}. In 2020, \citet{Yuan2020DAM} proprosed a new margin-based min-max surrogate loss function, which surpasses other models on the CheXpert\citep{Irvin2019Chexpert} till now. \\
+
+Deep learning based apporaches has been proven efficient and effective in various tasks, especially on vision-related tasks \citep{Singh2020ExplainableMedicalImage}. In medical field, \citep{Ting2017DLOnEyeDisease} proposed a CNN-based model that is able to detect diabetic rentinopathy and ralated eye diseases by retinal images. \citet{Esteva2017DNNSkinCancer} shows that deep learning can reach dermatologist-level accuracy in terms of skin cancer detection. \citet{Peng2019DeepSeeNet} developed a 2 step framework, \textit{DeepSeeNet}, to predict the severity of age-related macular degeneration (AMD). This method first detect the risk factor causing this disease, such as drusen size and pigementary abnormalities. Then, it will assign a AMD severity score to each patient.
+
+In some cases, the AI system can achieve expert-level performance or even outperform them on several visual tasks \citep{Rajpurkar2017CheXNet, Yuan2020DAM, Tang2020AbnormalityCXRCNN}.  Since automated chest x-ray interpretation can be considered as a image classification tasks, architectures and techniques from other domain can be resued. Transfer learning is a popular and effective method to improve the generalization on model \citep{Zhuang2019TransferLearningSurvey}. In general, the size of available CXR datasets are smaller than existing image datastes, such as MS-COCO \citep{Lin2014MSCOCO}, ImageNet \citep{Deng2009ImageNet} and OpenImage \citep{Kuznetsova2020OpenImages}. For example, \citet{Yuan2020DAM} and \citet{Cohen2020Covid19} use DenseNet\citep{Huang2016DenseNet} architecture. And, \citet{Dunnmon2019CNNOnCXRAssessment} use AlexNet\citep{Alex2012AlexNet}, ResNet \citep{He2015ResNet} and DenseNet pretrained on ImageNet database \citep{Deng2009ImageNet}. And \citet{Yates2018RedDotCXR} use pre-trained inception_v3\citep{Szegedy2015InceptionV3} from Google.
 
 \subsubsection{XAI on Medical Predictive Task}
 
+% ? Q: is is better to combine this and above?
+
+Despite the popularity on medical AI field, only few methods are being used. Most of the works use CAM \citep{Zhou2015CAM}, GradCAM\citep{Selvaraju2017GradCAM} or other similar algorithms that generate silency map to explain diagnosis \citep{Teixeira2021LIMEAndGradCAMOnCXR, Rajpurkar2018CheXNeXt, Rajpurkar2017CheXNet, Brunese2020ExplainableCovid19, Hou2021ExplainableCovid19}. However, silency map can be unreliable at soem cases. Recently, explainable methods through visualising sailency maps are evaluated in the work of \citep{Saporta2021BechmarkingSaliencyMethods}. And the authors demonstrate that sailency maps consistently perform worse that human experts, regardless of the AUC of model.
+
 \subsubsection{Muti-Modal Learning}
+% \citep{Ruder2017MultitaskLearning}
+
+
+
+
+\subsubsection{Eye Tracking}
+
+% 1. explain how eye tracking works and  what kind of information can be captured by eye tracking data. 
+
+Eye tracking technology has been studited since a long time ago. In 1950, researchers studited pilots' eye movements through a head-mounted eye-tracking device. The findings of this research are eventually used for redesigning the cockpit, which improves usability and recudes the risk caused by human error \citep{Fitts2005Cockpit, Cooke2005EyeTrackingUsability}.
+
+Today, most eye tracking technologies use corneal reflection, which uses a light source to illuminate the eye. This action creates a little glint under the pupil that the device can use to calibrate and track eye movement \citep{Schall2014EyeTrackingIntro, Fitts2005Cockpit}.
+
+\citet{Blascheck2014VisualisingEyeTracking} illustrates that A temporal order of \textit{fixation} within an Area Of interest (AOI) can be viewed as a \textit{gaze}. The duration of the fixation is usually represented by the radius. \textit{Saccades} are the connections between fixations. When a saccade connects two AOIs it's considered as  \textit{transition}. Finally, \textit{scanpath} consists of a complete sequence of fixations and saccades. The authors also generate human attention map to visualise human's interest on certain scene. This kind of application can assist UI workers to re-design and improve user experience \citep{Schall2014EyeTrackingIntro}.
+
+
+% 3. cases that prove eye tracking is useful for capturign user's cognitive process.
+When we're trying to capture where's users attention, it's unreliable to let user describe the whole story. In the work of \citet{Guan2006ThinkAloud}, the author demonstrated that human can reach 47\% of omissions in think-aloud experiment, which represents that human can't self-report precisely. Eye tracking technology is one of the effective methods to track human attention. The eye movement and human cognition are inextricably. \citep{Schall2014EyeTrackingIntro} states that eye tracking technology enable us to capture cognitive processes and visual perception. And, it can be potentially used to observe people's emotions and intentions \citep{Harezlak2018EyeTrackingInMedicine}. \citet{Rayner2015EvidenceCongnitiveFixation} demonstrates the evidence that direct cognitive control of eye fixations in reading. Another prove that eye tracking is highly relatable to cognitive is that eye tracking allow use to detect disease with congnitive disorders \citep{Harezlak2018EyeTrackingInMedicine}, such as Parkinson's disease \citep{S2016Parkinson}, Alzheimer's disease \citep{Crawford2015Alzheimer},
+Schizophrenia \citep{Levy2010Schizophrenia} and Autism \citep{Belen2021Autism}.
+
+
+While some studies suggest that the link between cognition and eye is not always correct \citep{Anderson2004EyeMovementNegativeSupport, Schall2014EyeTrackingIntro}, it's generally applicalbe that human tend to move the eyes to the stimulus that they're currently thinking about or processing \citep{Cater2020BestPracticeEyeTracking}. And behaviour that congnition guides the eye movement is called eye-mind link \citep{Reichle2012EyeMindLink1, Reichle2010EyeMindLink2}. 
+
+% 4. eye tracking cases on CXR dataset.
+Eye tracking is also a popular tool in studying how radiologists interpret CXR. \citet{Manning2003ExpreienceRadiologist} use eye tracking technology to show that radiologist with different experience have distinct difference in terms of scanning and interpreting strategies.
+
+
+
 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{./images/ThisWorkCover.png}
+    \includegraphics[width=.8\textwidth]{./images/ThisWorkCover-2.png}
     \caption{Venn diagram of this work.}
     \label{fig: this_work_cover}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{./images/LIME_ExampleOnCXR.png}
+    \includegraphics[width=.8\textwidth]{./images/LIME_ExampleOnCXR.png}
     \caption{LIME example on Chest X-ray images. \citep{Teixeira2021LIMEAndGradCAMOnCXR}}
     \label{fig: LIME_ExampleOnCXR}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{./images/GradCAMExample_OnCXR.png}
+    \includegraphics[width=.8\textwidth]{./images/GradCAMExample_OnCXR.png}
     \caption{GradCAM example on Chest X-ray images. \citep{Teixeira2021LIMEAndGradCAMOnCXR}}
     \label{fig: GradCAMExample_OnCXR}
 \end{figure}
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{./images/LINDA-BN.png}
+    \includegraphics[width=.8\textwidth]{./images/LINDA-BN.png}
     \caption{LINDA-BN explains why a patient is predcited not having diabetes. \citep{Moreira2021LINDA}}
     \label{fig: LINDA-BN_diabetes}
 \end{figure}
-
-\citep{Ruder2017MultitaskLearning}
-
-
 
 
 
@@ -219,15 +237,60 @@ Self-Attention => Model Specific
 
 %% List the sections that I need to do literature review on.
 
-
 \lipsum[1]
 
 \subsection{Research Problem and Research Questions}
+\underline{\textbf{Scope}} This work scope to the creation of multimodal chest X-ray images. Our analysis will be based on public datasets. % Speak about to datasets. % retrict the pathology to only MIMIC have ().
+\noindent
 
-\lipsum[1]
+\underline{\textbf{Problem Statement.}}
+% 1. Most of the works in the literature use only images to predict diagnoisis. focusing on this pixel-level classification can lead to bias, which is not accureatly reasoning how radiologist diagnosis. Howeve, recent literature suggest
 
-% Specify your research scope
+% %% \noindent
+% \textbf{\underline{Research Gap 2.} Deep Learning Classifiers Make Classifications Differently from Human Radiologists.} Most deep learning architectures in the literature make classifications using uniquely pixels of X-ray images and other image-based features that are not understandable to humans. This leads to the generation of erroneous explanations that are different from human radiologists and to biases that can put minority societal groups in danger of discrimination and poor diagnosis. 
 
-% Present your research gaps
+\begin{itemize}
+    \item Research Gap 1. : \\ Recent literature suggest that having the patients clinical data together with chest X-ray can lead to more accurate diagnosis for human radiologist. ref. Additionally, new studies emerging suggesting that eye tracking data from radiologists can provide the insight of how radiologists look at chest X-ray, and how they look the images and how they come up with diagnosis. However, to the best of our knowledge, no work in the existing literature has attempted to propose predictive architectures that use these modalities. It's also not clear if these modalities can promote more interpret able models.
+          \begin{itemize}
+              \item  Research Question 1: \\ What kind of eye tracking data representation machinism can promote human understating in radiologist in the assessement of the lesion in CXR.
+              \item Research Question 2: \\ what kind of multi-modal architecture can support eye tracking data and clinical data.
+          \end{itemize}
+    \item  Research Gap 2. : there's a strong body of literature suggesting a correlation between fixation points from eye tracking data and cognitive load. Studies suggest that longer fixation duration correspond to task difficulty. However, few studies have investigated the potential of using cognitive load theory features for diagnosis in CXR images.
+          \begin{itemize}
+              \item Research Question 3: \\ What's kind of features can be extracted from eye tracking data that can provide insights about the degree of cognitive fatigue of the radiologists as well as the difficulty of the task?
+              \item Research Question 4: \\ Can these extracted features be used in the deep learning architecture as means to identify bias due fatigue or difficulty.
+          \end{itemize}
 
-% State the research questions that follow from each research gap
+    \item \textbf{\underline{Research Gap 3.} Static Explainable Interfaces Fail at Promoting Engagement and Usage in Radiologists.} The explanation user interface consists as the sum of outputs of an XAI process that the user can directly interact with \citep{Chromik2021}. Most studies in explainable AI focus on static computational aspects of generating explanations (explanations generated by LIME or SHAP) while limited research is reported concerning the human-centered design of the explainable interface. There is a growing need in the literature in the design of interactive and dynamic interfaces that allow the user to drill down or ask for different types of explanations until he is satisfied. Recently, \ref{} suggests different interactive interface for XAI, including interaction as control and interaction as dialog. % puch line
+
+          \begin{itemize}
+              \item Research Question 5: \\ What're the user requirements to make this explainable interface interpretable to radiologists.
+              \item Research Question 6: \\ What kind of interaction are useful to promote understandability in radiologists of how and why the predictive system make its diagnosis.
+          \end{itemize}
+\end{itemize}
+
+
+% \item \textbf{Research Gap 3:} There are no standard human-centric evaluation protocols for explainable AI, specially for application-grounded and human-grounded evaluations. %Different authors perform the evaluation of their approaches based on different measures. %There is a need for a unified evaluation protocol for XAI.
+
+%  \begin{itemize}
+%     \item \textbf{RQ 4:} 
+%     What is an evaluation protocol that can be used effectively assess the quality (structure) and the believability of the explanation generated from the persuasive system?
+%     %How the evaluation experiment can be designed to achieve evaluating the believability of the explanation instead of focusing too much on user mental change? 
+
+%     %*Existing evaluaiton methods/ protocal to measure the human-understanding / relevance of user understandable evaluations 
+%     %*Reasonable scale ... .
+
+%   % Determining what makes an explanation better than another is one of the most pressing open research questions in XAI literature. By proposing a standardized evaluation protocol for explainability, one can promote the reliability of both interpretable and explainable models, increasing the user's trust in the system. 
+% \end{itemize}
+
+% Research Question 1:
+% What kind of eye tracking data representation machinism can promote human understating in radiologist in the assessement of the lesion in CXR.
+
+% Research Question 2: 
+% what kind of multi-modal architecture can support eye tracking data and clinical data.
+
+%%%%% Since the goal of this project is to come out interpretability, how do radiologist perceive eye tracking data? Does it provide understanding to the radiologist? 
+
+
+\noindent
+
