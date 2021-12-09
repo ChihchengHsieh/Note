@@ -188,19 +188,15 @@ Today, most eye tracking technologies use corneal reflection, which uses a light
 
 \citet{Blascheck2014VisualisingEyeTracking} illustrates that A temporal order of \textit{fixation} within an Area Of interest (AOI) can be viewed as a \textit{gaze}. The duration of the fixation is usually represented by the radius. \textit{Saccades} are the connections between fixations. When a saccade connects two AOIs it's considered as  \textit{transition}. Finally, \textit{scanpath} consists of a complete sequence of fixations and saccades. The authors also generate human attention map to visualise human's interest on certain scene. This kind of application can assist UI workers to re-design and improve user experience \citep{Schall2014EyeTrackingIntro}.
 
-
 % 3. cases that prove eye tracking is useful for capturign user's cognitive process.
 When we're trying to capture where's users attention, it's unreliable to let user describe the whole story. In the work of \citet{Guan2006ThinkAloud}, the author demonstrated that human can reach 47\% of omissions in think-aloud experiment, which represents that human can't self-report precisely. Eye tracking technology is one of the effective methods to track human attention. The eye movement and human cognition are inextricably. \citep{Schall2014EyeTrackingIntro} states that eye tracking technology enable us to capture cognitive processes and visual perception. And, it can be potentially used to observe people's emotions and intentions \citep{Harezlak2018EyeTrackingInMedicine}. \citet{Rayner2015EvidenceCongnitiveFixation} demonstrates the evidence that direct cognitive control of eye fixations in reading. Another prove that eye tracking is highly relatable to cognitive is that eye tracking allow use to detect disease with congnitive disorders \citep{Harezlak2018EyeTrackingInMedicine}, such as Parkinson's disease \citep{S2016Parkinson}, Alzheimer's disease \citep{Crawford2015Alzheimer},
 Schizophrenia \citep{Levy2010Schizophrenia} and Autism \citep{Belen2021Autism}.
 
 
-While some studies suggest that the link between cognition and eye is not always correct \citep{Anderson2004EyeMovementNegativeSupport, Schall2014EyeTrackingIntro}, it's generally applicalbe that human tend to move the eyes to the stimulus that they're currently thinking about or processing \citep{Cater2020BestPracticeEyeTracking}. And behaviour that congnition guides the eye movement is called eye-mind link \citep{Reichle2012EyeMindLink1, Reichle2010EyeMindLink2}. 
+While some studies suggest that the link between cognition and eye is not always correct \citep{Anderson2004EyeMovementNegativeSupport, Schall2014EyeTrackingIntro}, it's generally applicalbe that human tend to move the eyes to the stimulus that they're currently thinking about or processing \citep{Cater2020BestPracticeEyeTracking}. And behaviour that congnition guides the eye movement is called eye-mind link \citep{Reichle2012EyeMindLink1, Reichle2010EyeMindLink2}.
 
 % 4. eye tracking cases on CXR dataset.
-Eye tracking is also a popular tool in studying how radiologists interpret CXR. \citet{Manning2003ExpreienceRadiologist} use eye tracking technology to show that radiologist with different experience have distinct difference in terms of scanning and interpreting strategies.
-
-
-
+Eye tracking is also a popular tool used in medical industry. \citet{Manning2003ExpreienceRadiologist} and \citet{Nicholas2015PassingGlance} use eye tracking technology to show that radiologist with different experience have distinct difference in terms of scanning and interpreting strategies. As the eye tracking infomration can indicate the interpretation performance, \citep{McLaughlin2017EvaluateRadiologistPeformanceLevel} proposed an algorithm to assess radiologists' interpretation technique. \citet{Karargyris2021EyeGazePaper} implemented two experiments to demonstrate how can eye tracking information benefit deep learning based predictive system. It shows the eye tracking data can be considered as both input and label for the model. When eye tracking data is treated as input of the model, it can boost the accuracy of the model since it can the information from radiologist. And it can also considered as a output of model to improve the genrarlisation and provide explanation. Recently, \citep{Saab2021EyeTrackingCXRClassification} also proposed a similar algorithms to use eye tracking data as labels in a mutli-task learning framework. In addition, the authors shows the gaze freatures from normal and abnormal CXR images differ noticeably. A set of weak lables can therefore be extracted from eye tracking data for supervised-learning tasks.
 
 
 \begin{figure}[!h]
@@ -232,43 +228,48 @@ Eye tracking is also a popular tool in studying how radiologists interpret CXR. 
 \end{figure}
 
 
-
-
-
 %% List the sections that I need to do literature review on.
 
 \lipsum[1]
 
 \subsection{Research Problem and Research Questions}
 \underline{\textbf{Scope}} This work scope to the creation of multimodal chest X-ray images. Our analysis will be based on public datasets. % Speak about to datasets. % retrict the pathology to only MIMIC have ().
+
+
 \noindent
 
-\underline{\textbf{Problem Statement.}}
-% 1. Most of the works in the literature use only images to predict diagnoisis. focusing on this pixel-level classification can lead to bias, which is not accureatly reasoning how radiologist diagnosis. Howeve, recent literature suggest
+% Personally conducted interviews with radiologists in Portugal suggest that the radiolo-gists need the patient’s clinical data to make accurate readings and diagnoses from an X-ray image. Thisis the primary reason why the interviewed radiologists distrust AI models: one cannot make an accuratediagnosis by looking uniquely at X-ray images since one cannot understand if a lesion that is in the imagecorresponds to a scar from an old pulmonary disease or whether it is a consequence of a current pathologythat the patient has. Motivated by this real-world need we identified the following research gaps, which willlead to the proposed research goals.
 
 % %% \noindent
-% \textbf{\underline{Research Gap 2.} Deep Learning Classifiers Make Classifications Differently from Human Radiologists.} Most deep learning architectures in the literature make classifications using uniquely pixels of X-ray images and other image-based features that are not understandable to humans. This leads to the generation of erroneous explanations that are different from human radiologists and to biases that can put minority societal groups in danger of discrimination and poor diagnosis. 
+% \textbf{\underline{Research Gap 2.} Deep Learning Classifiers Make Classifications Differently from Human Radiologists.} Most deep learning architectures in the literature make classifications using uniquely pixels of X-ray images and other image-based features that are not understandable to humans. This leads to the generation of erroneous explanations that are different from human radiologists and to biases that can put minority societal groups in danger of discrimination and poor diagnosis.
+
+
+\underline{\textbf{Problem Statement.}}
+ In a practical case, the radiologist commonly use clinical data to assist their process of diagnosis. Recent literature also suggests that clinical data can benefit the accuracy of diagnosis \citep{Castillo2020ClinicalInformationOnRadiology, Leslie2000CTClinicalData}. However, most of the existing works in medical AI only use medical images to make a diagnosis. Focusing only on this pixel-level classification can lead to bias, which does not precisely substantiate the diagnosis by radiologists. Ignoring the bias in an AI model can increase the risk for minority groups in terms of discrimination and poor diagnosis. Motivated by this real-world need we identified the following research gaps, which will lead to the proposed research goals.
 
 \begin{itemize}
-    \item Research Gap 1. : \\ Recent literature suggest that having the patients clinical data together with chest X-ray can lead to more accurate diagnosis for human radiologist. ref. Additionally, new studies emerging suggesting that eye tracking data from radiologists can provide the insight of how radiologists look at chest X-ray, and how they look the images and how they come up with diagnosis. However, to the best of our knowledge, no work in the existing literature has attempted to propose predictive architectures that use these modalities. It's also not clear if these modalities can promote more interpret able models.
+    \item \textbf{\underline{Research Gap 1.} The combination of clinical data and eye tracking data is missing in current literature.} \\ Recent literature suggests that using accurate patients' \textit{clinical data} together with medical images can improve the performance of human radiologist in terms of accuracy. \citep{Castillo2020ClinicalInformationOnRadiology, Leslie2000CTClinicalData}. Additionally, there are studies suggesting that \textit{eye tracking data} from radiologists can shed light on how radiologists interpret Chest X-ray images and obtain diagnoses \citep{Karargyris2021EyeGazePaper, Lanfredi2021REFLACX}. However, to the best of our knowledge, no work in the existing literature has attempted to propose predictive architectures using these two modalities. It's also uncertain whether these modalities can promote more interpretable models.
           \begin{itemize}
-              \item  Research Question 1: \\ What kind of eye tracking data representation machinism can promote human understating in radiologist in the assessement of the lesion in CXR.
-              \item Research Question 2: \\ what kind of multi-modal architecture can support eye tracking data and clinical data.
+              \item \textbf{Research Question 1:} \\ What form of eye tracking data representation mechanism can promote human understanding as radiologist assess the lesion in CXR.
+              \item \textbf{Research Question 2:} \\  What multi-modal architecture is required to process eye tracking data and clinical data.
           \end{itemize}
-    \item  Research Gap 2. : there's a strong body of literature suggesting a correlation between fixation points from eye tracking data and cognitive load. Studies suggest that longer fixation duration correspond to task difficulty. However, few studies have investigated the potential of using cognitive load theory features for diagnosis in CXR images.
+    \item  \textbf{\underline{Research Gap 2.} The potential of cognitive load theory on medical image diagnosis is under-explored.} There's a strong body of literature suggesting a correlation between fixation points from eye tracking data and cognitive load. And, the duration of the fixation can represent the difficulty of the task \citep{Palinko2010EyeTrackingCognitiveLoad-1, Zagermann2016EyeTrackingCognitiveLoad-2, Wang2014EyeTrackingCognitiveLoad-3, Krejtz2018EyeTrackingCognitiveLoad-4,Klingner2010EyeTrackingCognitiveLoad-5}. However, only a small number of studies have explored the potential of using the cognitive load theory feature for diagnosis in CXR images.
           \begin{itemize}
-              \item Research Question 3: \\ What's kind of features can be extracted from eye tracking data that can provide insights about the degree of cognitive fatigue of the radiologists as well as the difficulty of the task?
-              \item Research Question 4: \\ Can these extracted features be used in the deep learning architecture as means to identify bias due fatigue or difficulty.
+              \item \textbf{Research Question 3:} \\ What features can we extract from eye tracking data in order to get insight into the level of cognitive fatigue and the difficulty of the task?
+              \item \textbf{Research Question 4:} \\ Can these extracted features be used in the neural network to identify bias due to fatigue or difficulty?
           \end{itemize}
-
-    \item \textbf{\underline{Research Gap 3.} Static Explainable Interfaces Fail at Promoting Engagement and Usage in Radiologists.} The explanation user interface consists as the sum of outputs of an XAI process that the user can directly interact with \citep{Chromik2021}. Most studies in explainable AI focus on static computational aspects of generating explanations (explanations generated by LIME or SHAP) while limited research is reported concerning the human-centered design of the explainable interface. There is a growing need in the literature in the design of interactive and dynamic interfaces that allow the user to drill down or ask for different types of explanations until he is satisfied. Recently, \ref{} suggests different interactive interface for XAI, including interaction as control and interaction as dialog. % puch line
-
+    \item \textbf{\underline{Research Gap 3.} Static Explainable Interfaces Fail at Promoting Engagement and Usage in Radiologists.} The explanation user interface consists of the sum of the outputs of an XAI process that the user can directly interact with \citep{Chromik2021}. Most studies in explainable AI focus on static computational aspects of generating explanations (explanations generated by LIME or SHAP) while limited research is reported concerning the human-centered design of the explainable interface. There is a growing need in the literature in the design of interactive and dynamic interfaces that allow the user to drill down or ask for different types of explanations until he is satisfied. Recently, \citet{Chromik2021} suggests different interactive interface for XAI, including interaction as control and interaction as dialog. These two interaction methods allow the framework adjust its output according to the feedback from the user, which provides most interactive experience to users.  
           \begin{itemize}
-              \item Research Question 5: \\ What're the user requirements to make this explainable interface interpretable to radiologists.
-              \item Research Question 6: \\ What kind of interaction are useful to promote understandability in radiologists of how and why the predictive system make its diagnosis.
+              \item \textbf{Research Question 5:} \\ What are the user requirements to make this explainable interface interpretable to radiologists.
+              \item \textbf{Research Question 6:} \\ What kind of interaction are useful to promote understand-ability in radiologists of how and why the predictive system make its diagnosis.
           \end{itemize}
 \end{itemize}
 
+
+% 1. Most of the works in the literature use only images to predict diagnoisis. focusing on this pixel-level classification can lead to bias, which is not accureatly reasoning how radiologist diagnosis. Howeve, recent literature suggest
+
+% %% \noindent
+% \textbf{\underline{Research Gap 2.} Deep Learning Classifiers Make Classifications Differently from Human Radiologists.} Most deep learning architectures in the literature make classifications using uniquely pixels of X-ray images and other image-based features that are not understandable to humans. This leads to the generation of erroneous explanations that are different from human radiologists and to biases that can put minority societal groups in danger of discrimination and poor diagnosis.
 
 % \item \textbf{Research Gap 3:} There are no standard human-centric evaluation protocols for explainable AI, specially for application-grounded and human-grounded evaluations. %Different authors perform the evaluation of their approaches based on different measures. %There is a need for a unified evaluation protocol for XAI.
 
