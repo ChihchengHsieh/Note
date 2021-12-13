@@ -65,10 +65,10 @@ Explainable artificial intelligence (XAI) is a set of approaches to extract the 
 % p.6 The gap of current XAI method. (different user group.)
 In the work of CheXNet \citep{Rajpurkar2017CheXNet} and CheXNeXt \citep{Rajpurkar2018CheXNeXt}, Class Activation Mappings (CAMs) \citep{Zhou2015CAM} is used for generating heatmaps to show important features during classification. Then they observe that CAMs can successfully localise the pathologies it identified. However, this approach of interpretation can be inconsistent. \citet{Saporta2021BechmarkingSaliencyMethods} conducted a human benchmark to evaluate current saliency methods, which includes GradCAM, GradCAM ++ and Integrated Gradient. The evaluation result shows the saliency methods perform significantly worse than professional radiologists. Therefore, before applying medical AI system on the real cases, multiple issues have to be solved or mitigated to ensure the reliability. \\
 
-% p.6 How would I like to close the gap.
+% p.7 How would I like to close the gap.
 To close the gap of current XAI methods on chest X-ray image, we want to apply multi-modal learning \citep{Ngiam2011MultiModalLearning}.  \citet{Castillo2020ClinicalInformationOnRadiology} found the clinical information communicated to the radiologist can improve interpretation accuracy, clinical relevance and reporting confidence. Since the positive impact of clinical information on radiology report, it should be inlcuded as a input of model to facilitate the decision making process. Instead only providing CXR images to the model, other modalities, such as eye tracking data, report text, bounding boxes and clinical data can also be included, as shown in Table \ref{tab:modalities_table}. In this work, we will mainly use the data from 6 different datasets. MIMIC-IV \citep{Johnson2021MIMIC_IV} and MIMIC-ED \citep{Johnson2021MIMIC_IV_ED} provide the clinical data about the patients. MIMIC-CXR \citep{Johnson2019MIMIC_CXR} and MIMIC-CXR-JPG \citep{DJohnson2019MIMIC_CXR_JPG} contain the CXR images and the report text from the hospital where patients took CXR . Eye gaze data \citep{Karargyris2020EyeGazeDataset} includes eye tracking data, segmentation maps, bounding boxes, dictation audio and its transcription. Moreover, REFLACX dataset \citep{Lanfredi2021REFLACX} offers another set of eye tracking information, anomaly locations ellipses, dictation audio and transcription. There are three main reasons why different modalities should be involved. Firstly, we argue that the model can be more gain better performance through receiving more information. Richer information can facilitate the classification process and boosts the robustness of model. Secondly, we believe human recognition pattern can be extracted from the fixation information. And, the fixation information itself or the extracted pattern can be used for improving both performance and explainability. At the last, some of the modalities can be served as both input and output. For instance, \citet{Karargyris2021EyeGazePaper} implement two experiments is their work. One of them feeds fixation information as input to boost the AUC. At another work, eye gaze data is used as a label in output section, which require the model to predict where the radiologists will look at and focus on. Generally, the sight of the radiologists can help us to localise the pathologies, which enhances the explainability of model. The overall framework has been shown in Figure \ref{fig: proposed_framework}. The modalities with dashed border can serve as input or output. Additionally, the four output modalities with blue background are those can provide explainability. These are: eye tracking information, report text, audio \& transcription and anomaly location ellipse.\\
 
-% p.7 Aims of the PhD
+% p.8 Aims of the PhD
 This PhD targets on developing a multi-modal learning framework for medical images. The modalities that can be included in pre-training or training phase are chest X-ray image, report text, eye tracking information, utterance of report, segmentation and bounding boxes. Within the framework, an explaination method will be delivered to interpret the computational result of the model, which can helps human to comprehend how the model make decisions. Therefore, the overall function of the framework is to provide a system of explainable Automated chest radiograph interpretation. \\
 \\
 \\
@@ -175,10 +175,17 @@ Despite the popularity on medical AI field, only few methods are being used. Mos
 \subsubsection{Muti-Modal Learning}
 % \citep{Ruder2017MultitaskLearning}
 
+% 1. What's multimodal learning => get the definition from paper.
 
+% 2. What's the benefit we can gain from multi-modal learninig. 
 
+% 3. What have been implemented in the deep learning area?
 
-\subsubsection{Eye Tracking}
+% 4. What have been implemented in the medical area?
+
+Integrating such heterogeneous data to form a holistic space.
+
+\subsubsection{Eye Tracking Technology}
 
 % 1. explain how eye tracking works and  what kind of information can be captured by eye tracking data. 
 
@@ -233,38 +240,47 @@ Eye tracking is also a popular tool used in medical industry. \citet{Manning2003
 \lipsum[1]
 
 \subsection{Research Problem and Research Questions}
-\underline{\textbf{Scope}} This work scope to the creation of multimodal chest X-ray images. Our analysis will be based on public datasets. % Speak about to datasets. % retrict the pathology to only MIMIC have ().
 
+\underline{\textbf{Scope}} This work scope to the creation of multimodal chest X-ray images. Our analysis will be based on certain public datasets \citep{Johnson2021MIMIC_IV, Johnson2019MIMIC_CXR, Johnson2021MIMIC_IV_ED, Lanfredi2021REFLACX, Karargyris2020EyeGazeDataset}. And, only the Disease , Congestive Heart Failure (CHF) and Pneumonia, are within the scope.
 
 \noindent
+\underline{\textbf{Problem Statement.}}
+In a practical case, the radiologist commonly use clinical data to assist their process of diagnosis. Recent literature also suggests that clinical data can benefit the accuracy of diagnosis \citep{Castillo2020ClinicalInformationOnRadiology, Leslie2000CTClinicalData}. However, most of the existing works in medical AI only use medical images to make a diagnosis. Focusing only on this pixel-level classification can lead to bias, which does not precisely substantiate the diagnosis by radiologists. Ignoring the bias in an AI model can increase the risk for minority groups in terms of discrimination and poor diagnosis. Motivated by this real-world need we identified the following research gaps, which will lead to the proposed research goals.
+
+\begin{itemize}
+    \item \textbf{\underline{Research Gap 1.} The combination of clinical data and eye tracking data can promote more accurate and interpretable model} \\ Recent literature suggests that using accurate patients' \textit{clinical data} together with medical images can improve the performance of human radiologist in terms of accuracy. \citep{Castillo2020ClinicalInformationOnRadiology, Leslie2000CTClinicalData}. Additionally, there are studies suggesting that \textit{eye tracking data} from radiologists can shed light on how radiologists interpret Chest X-ray images and obtain diagnoses \citep{Karargyris2021EyeGazePaper, Lanfredi2021REFLACX}. However, to the best of our knowledge, no work in the existing literature has attempted to propose predictive architectures using these two modalities. It's also uncertain whether these modalities can promote more interpretable models.
+          \begin{itemize}
+              \item \textbf{Research Question 1:} \\ How can eye tracking data representation mechanism increase the radiologist' understandability and interpretation of a CXR image.
+                    %   What form of eye tracking data representation mechanism can promote human understanding as radiologist assess the lesion in CXR.
+              \item \textbf{Research Question 2:} \\  What's are the most appropriate multi-modal architectures that are required to process different types of data, such as eye tracking data (time-series data), chest X-ray (image data) and clinical data (tabular).
+          \end{itemize}
+    \item  \textbf{\underline{Research Gap 2.} The usage of cognitive load theory on multi-modal classification for chest X-ray images is under-explored in the literature.} There's a strong body of literature suggesting a correlation between fixation points from eye tracking data and cognitive load. And, the duration of the fixation can represent the difficulty of the task \citep{Palinko2010EyeTrackingCognitiveLoad-1, Zagermann2016EyeTrackingCognitiveLoad-2, Wang2014EyeTrackingCognitiveLoad-3, Krejtz2018EyeTrackingCognitiveLoad-4,Klingner2010EyeTrackingCognitiveLoad-5}. However, only a small number of studies have explored the potential of using the cognitive load theory feature for diagnosis in CXR images.
+          \begin{itemize}
+              \item \textbf{Research Question 3:} \\ What features can we extract from eye tracking data in order to get insight into the level of cognitive fatigue and the difficulty of the task in chest X-ray diagnosis?
+              \item \textbf{Research Question 4:} \\ Can cognitive load features be used in the neural network to identify bias due to fatigue or difficulty?
+          \end{itemize}
+    \item \textbf{\underline{Research Gap 3.} Static Explainable Interfaces Fail at Promoting Engagement and system interpretability in Radiologists.} The explanation user interface consists of the sum of the outputs of an XAI process that the user can directly interact with \citep{Chromik2021}. Most studies in explainable AI focus on static computational aspects of generating explanations (explanations generated by LIME or SHAP) while limited research is reported concerning the human-centered design of the explainable interface. There is a growing need in the literature in the design of interactive and dynamic interfaces that allow the user to drill down or ask for different types of explanations until he is satisfied. Recently, \citet{Chromik2021} suggests different interactive interface for XAI, including interaction as control and interaction as dialog. These two interaction methods allow the framework adjust its output according to the feedback from the user, which provides most interactive experience to users.
+          \begin{itemize}
+              \item \textbf{Research Question 5:} \\ What are the user requirements to make this explainable interface interpretable to radiologists and to help them learn how can this system help them how to make classification.
+              \item \textbf{Research Question 6:} \\ What kind of interaction are useful to promote understand-ability in radiologists of how and why the predictive system make its diagnosis.
+          \end{itemize}
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %% \noindent
+% \textbf{\underline{Research Gap 2.} Deep Learning Classifiers Make Classifications Differently from Human Radiologists.} Most deep learning architectures in the literature make classifications using uniquely pixels of X-ray images and other image-based features that are not understandable to humans. This leads to the generation of erroneous explanations that are different from human radiologists and to biases that can put minority societal groups in danger of discrimination and poor diagnosis.
+
+% \item \textbf{Research Gap 3:} There are no standard human-centric evaluation protocols for explainable AI, specially for application-grounded and human-grounded evaluations. %Different authors perform the evaluation of their approaches based on different measures. %There is a need for a unified evaluation protocol for XAI.
 
 % Personally conducted interviews with radiologists in Portugal suggest that the radiolo-gists need the patient’s clinical data to make accurate readings and diagnoses from an X-ray image. Thisis the primary reason why the interviewed radiologists distrust AI models: one cannot make an accuratediagnosis by looking uniquely at X-ray images since one cannot understand if a lesion that is in the imagecorresponds to a scar from an old pulmonary disease or whether it is a consequence of a current pathologythat the patient has. Motivated by this real-world need we identified the following research gaps, which willlead to the proposed research goals.
 
 % %% \noindent
 % \textbf{\underline{Research Gap 2.} Deep Learning Classifiers Make Classifications Differently from Human Radiologists.} Most deep learning architectures in the literature make classifications using uniquely pixels of X-ray images and other image-based features that are not understandable to humans. This leads to the generation of erroneous explanations that are different from human radiologists and to biases that can put minority societal groups in danger of discrimination and poor diagnosis.
 
-
-\underline{\textbf{Problem Statement.}}
- In a practical case, the radiologist commonly use clinical data to assist their process of diagnosis. Recent literature also suggests that clinical data can benefit the accuracy of diagnosis \citep{Castillo2020ClinicalInformationOnRadiology, Leslie2000CTClinicalData}. However, most of the existing works in medical AI only use medical images to make a diagnosis. Focusing only on this pixel-level classification can lead to bias, which does not precisely substantiate the diagnosis by radiologists. Ignoring the bias in an AI model can increase the risk for minority groups in terms of discrimination and poor diagnosis. Motivated by this real-world need we identified the following research gaps, which will lead to the proposed research goals.
-
-\begin{itemize}
-    \item \textbf{\underline{Research Gap 1.} The combination of clinical data and eye tracking data is missing in current literature.} \\ Recent literature suggests that using accurate patients' \textit{clinical data} together with medical images can improve the performance of human radiologist in terms of accuracy. \citep{Castillo2020ClinicalInformationOnRadiology, Leslie2000CTClinicalData}. Additionally, there are studies suggesting that \textit{eye tracking data} from radiologists can shed light on how radiologists interpret Chest X-ray images and obtain diagnoses \citep{Karargyris2021EyeGazePaper, Lanfredi2021REFLACX}. However, to the best of our knowledge, no work in the existing literature has attempted to propose predictive architectures using these two modalities. It's also uncertain whether these modalities can promote more interpretable models.
-          \begin{itemize}
-              \item \textbf{Research Question 1:} \\ What form of eye tracking data representation mechanism can promote human understanding as radiologist assess the lesion in CXR.
-              \item \textbf{Research Question 2:} \\  What multi-modal architecture is required to process eye tracking data and clinical data.
-          \end{itemize}
-    \item  \textbf{\underline{Research Gap 2.} The potential of cognitive load theory on medical image diagnosis is under-explored.} There's a strong body of literature suggesting a correlation between fixation points from eye tracking data and cognitive load. And, the duration of the fixation can represent the difficulty of the task \citep{Palinko2010EyeTrackingCognitiveLoad-1, Zagermann2016EyeTrackingCognitiveLoad-2, Wang2014EyeTrackingCognitiveLoad-3, Krejtz2018EyeTrackingCognitiveLoad-4,Klingner2010EyeTrackingCognitiveLoad-5}. However, only a small number of studies have explored the potential of using the cognitive load theory feature for diagnosis in CXR images.
-          \begin{itemize}
-              \item \textbf{Research Question 3:} \\ What features can we extract from eye tracking data in order to get insight into the level of cognitive fatigue and the difficulty of the task?
-              \item \textbf{Research Question 4:} \\ Can these extracted features be used in the neural network to identify bias due to fatigue or difficulty?
-          \end{itemize}
-    \item \textbf{\underline{Research Gap 3.} Static Explainable Interfaces Fail at Promoting Engagement and Usage in Radiologists.} The explanation user interface consists of the sum of the outputs of an XAI process that the user can directly interact with \citep{Chromik2021}. Most studies in explainable AI focus on static computational aspects of generating explanations (explanations generated by LIME or SHAP) while limited research is reported concerning the human-centered design of the explainable interface. There is a growing need in the literature in the design of interactive and dynamic interfaces that allow the user to drill down or ask for different types of explanations until he is satisfied. Recently, \citet{Chromik2021} suggests different interactive interface for XAI, including interaction as control and interaction as dialog. These two interaction methods allow the framework adjust its output according to the feedback from the user, which provides most interactive experience to users.  
-          \begin{itemize}
-              \item \textbf{Research Question 5:} \\ What are the user requirements to make this explainable interface interpretable to radiologists.
-              \item \textbf{Research Question 6:} \\ What kind of interaction are useful to promote understand-ability in radiologists of how and why the predictive system make its diagnosis.
-          \end{itemize}
-\end{itemize}
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % 1. Most of the works in the literature use only images to predict diagnoisis. focusing on this pixel-level classification can lead to bias, which is not accureatly reasoning how radiologist diagnosis. Howeve, recent literature suggest
 
