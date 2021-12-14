@@ -4,15 +4,15 @@
 \subsection{Objectives, Methodology and Research Plan}
 
 \subsubsection{Objectives}
-The main objective of this research is to advance a more accurate and intepretable medical AI model through multimodal learning. Eye tracking data, clinical data and Chest X-ray image are the 3 modalities that will be included in this research.\\*
+The main objective of this research is to advance a more accurate and intepretable medical AI framework through multimodal learning. Eye tracking data, clinical data and Chest X-ray image are the 3 modalities that will be included in this research.\\*
 
 \noindent
 \textbf{AIM 1 (RQ 1 \& RQ 5)}:\\*
-Gain better understanding of radiologists classification pattern of CXR images through eye tracking data.And how radiologists perceive other eye tracking classification pattern from other radiologists. \\* 
+Gain better understanding of radiologist classification pattern of CXR images through eye tracking data. And how radiologists perceive other eye tracking classification pattern from other radiologists. \\*
 
 \noindent
 \textbf{AIM 2 (RQ 2 \& RQ 3 \& 4)}:\\*
- Create an explainable human centered multimodal deep learning architecture that supports prediction of lung diseases based on human classification patterns from eye tracking data and pupil dilations, and patients' clinical data.\\*
+Create an explainable human centered multimodal deep learning architecture that supports prediction of lung and heart diseases based on human classification patterns from eye tracking data and pupil dilations, and patients' clinical data.\\*
 
 
 \noindent
@@ -31,6 +31,58 @@ This research will follow the guidance from Desing Science Research Methodology 
 \end{figure}
 
 \subsubsection{Research Plan}
+
+% introduce to the section
+
+In this section, the overall plan of this research will be shown. In order to acheieve the 3 objectives we listed in the section 4.1, this research will be divided to 3 corresponded phases.
+
+\subsubsection*{Phase I: Data exploration, radiologists interview [Theory] [Aim 1]}
+
+\textbf{Description:} In order to generate an explainable result for the radiologist, we first have to know how the X-ray chest image is interpreted by radiologists. This understanding can be gained through two approaches. First, we will examine the existing eye tracking data to identify the classification pattern. Next, we'll interview the radiologist so they can tell us how they actually make a diagnosis based on the chest x-rays and clinical data. And the eye tracking data and classification patterns we observed are also shown to help understand how professional radiologists perceive this type of information. Since we already have an established research collaboration with an experience radiologist from the main hospital in Portugal, the result from each phase will be evaluated with the help of the radiologist.
+
+\begin{itemize}
+    \item \textbf{Activity 1:} Explore eye tracking dataset to see what type of feature or pattern we can extract.
+    \item \textbf{Activity 2:} Indentify the possible classfication pattern data by observing the difference in eye movements between a normal and an abnormal case in terms of fixation, saccades and scanpath.
+    \item \textbf{Activity 3:} Interview with radiologists to know how they make a classfication based on clinical data and Chest X-ray image.
+    \item \textbf{Activity 4:} Interview with radiologists to find out what kind of explanation they expect to have from a computer-aided system.
+    \item \textbf{Activity 5:} Interview with radiologists to find out how they perceive the eye tracking data and the extracted classfication pattern.
+\end{itemize}
+
+
+\textbf{Expected Outcomes:}
+By understanding the Chest X-ray interpretation process and the classification pattern of eye tracking information, we will know how to feature engineer the eye tracking information and clinical data to build a predictive model. Through the perception of radiologists on eye tracking data, we can utilise the eye tracking information realistically. According to the radiologists' expectation on a computer-aided system, we can design a framework that generates desirable explanation.
+
+\subsubsection*{Phase II: Predictive Model Development [Algorithms] [Aim 2]}
+In the first phase, we will have known how which featuers or patterns in the dataset will be useful for creating a predictive model to make diagnosis. In this phase, we will firstly decide what tasks we want the framework to perform. Based on the tasks we decided to perform, we're going to make decision on the model architecture considered available input and output data. For example, if we want the framwork not only to predict the disease but also provide text explanation, we will need the architecture that supports text generation, such as RNN decoder \citep{Sutskever2014Seq2Seq} or Transformer \citep{Vaswani2017Transformer}. If we want the model to generate bounding boxes for lesions, a architectue from object detection task must be adopted.
+Overall, the pipeline of this framwork will hierarchically consist of 2 stages. The main purpose of first stage is to make the diagnosis. And, the second stage is responsible for generating the explanation, such as bounding boxes.
+
+\begin{itemize}
+    \item \textbf{Activity 1:} Organise availible data to determine what informaiotn from dataset should be considered as input or output.
+    \item \textbf{Activity 2:} According to the expected input and output for the predictive model, we decide what functionalities (learinng tasks) we're going to provide in this framework.
+    \item \textbf{Activity 3:} Based on the learning tasks we decided, we survey exisiting literature to find out optimum architecture.
+    \item \textbf{Activity 4:} Design a fusion strategy to fuse the information from different modalties.
+    \item \textbf{Activity 5:} Design the loss function for the framework. When we have multiple labels in the output, a method of combining losses from different tasks is needed.
+    \item \textbf{Activity 6:} Conduct training and parameter searching on the framework to optimise performance.
+    \item \textbf{Activity 7:} The peformance of the model will be evaluated by AUC. And the generated explanation will be examined by human radiologist.
+\end{itemize}
+
+\textbf{Expected Outcomes:}
+The outcome of this phase is the design of framework architecture and the trained model that can classify the disease accurately and provide insightful explanation for its predictions.
+
+\subsubsection*{Phase III: Interactive interface [Application] [Aim 2]}
+In the previous phase, we run the model to obtain prediction through terminal and scripts. However, this approach can be inefficient and confusing to radiologist. Since the radiologist is the end-user that we ultimately want to serve to, an interface specially designed for radiologists is required. The activities in this phase can be iterative until a desired application can be delivered.
+
+\begin{itemize}
+    \item \textbf{Activity 1:} Conduct an intial interview with radiologists to know what kind of information should be shown on the screen. To make the application interactive, we also have to dissuse how radiologist prefer to import the data and export the diagnosis and explanation. 
+    \item \textbf{Activity 2:} According to the dicssion we have in previous activity, the requirements will be llsted.
+    \item \textbf{Activity 3:} Follow the requirements list, we will implement the interface and functionalities to meet the requirements.
+    \item \textbf{Activity 4:} Once the application has been completed and tested internally, we will conduct another interview with radiologists to run the tests and collect feedback from them. When the test is over and no improvement is needed, we can move on to the next activity. However, if a change is requested we can redirect to Activity 2 to adjust the application.    
+    \item \textbf{Activity 5:} Eventually we will deploy this application and make it available online. Another system for collecting feedback will be put in place to look for ways to improve the interface. Regular maintenance will also be planned.
+\end{itemize}
+
+
+\textbf{Expected Outcomes:}
+At the last phase, the deliverable outcome will be an interactive and robust computer-aided system specifically designed for the needs from radiologists. This application will use the model we trained in last phase to take clinical information and chest x-ray image as input and make diagnoses for patients. In addition, the explanation of the diagnosis decisions will also be generated and shown on the screen. The user interface of the framework will be user-friendly. The information will be properly categories and clearly displayed on the screen.
 % say that we will do evaluation with the help of radiologist. (Interview with radiologists.) (Assess our model output.). (Evaluate our framework)
 %% Make Chart
 
@@ -40,4 +92,6 @@ This research will follow the guidance from Desing Science Research Methodology 
 
 
 \subsection{Individual Contributions to the Research Team}
+
+
 
