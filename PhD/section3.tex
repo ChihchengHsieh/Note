@@ -76,7 +76,7 @@ This PhD targets on developing a multi-modal learning framework for medical imag
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=\textwidth]{./images/MultiModalLearningFramework.png}
+    \includegraphics[width=\textwidth]{./images/MultiModalLearning.png}
     \caption{Overview of proposed framework.}
     \label{fig: proposed_framework}
 \end{figure}
@@ -134,7 +134,7 @@ The post-hoc explanations can be further separated to two categories, including 
 
 \begin{itemize}
     \item \textbf{LIME:} \\ Local Interpretable Modal-agnostic Explaination (LIME) is to firstly generate a set of perturbed samples with associated lables around the input. And an interpretable model, such as decision or logistic regression, will be trained on the permutation dataset to approximate the original model in the local area. In another word, $f$ and $x$ are the original model and the input respectively. Then the LIME algorithm is trying to find an interpretable mode, $g$ to ensure $g(z^{'}) \approx f(h_{x}(z^{'}))$ where $z^{'} \approx x^{'}$. And $h_{x}$ is a mapping function $x = h_{x}(x^{'})$. The feature importance can therfore be extracted from the linear surrogate model to explain which important features leads to this decision, as shown in figure \ref{fig: LIME_ExampleOnCXR}.\\
-    \item \textbf{SHAP:} \\ In 2017, \citet{Lundberg2017SHAP} unified 6 existing XAI methods that are using similar explanation method, including LIME, DeepLIFT, layer-wise relevance propagation, Shapley regression value, Shapley sampling value and Quantitative Input Influence. In that work, they propse SHapley Additive exPlanations (SHAP) values as a unified measure of feasture importance. It uses the Shapley value from game thoery to assign each feature an importance value for a particular predcition. At the point they're preparing the releasement, they also found a similar work pubished in economic field \citep{Charnes1988ShapeleyValueInEconomic}. \\
+    \item \textbf{SHAP:} \\ In 2017, \citet{Lundberg2017SHAP} unified 6 existing XAI methods that are using similar explanation method, including LIME, DeepLIFT, layer-wise relevance propagation, Shapley regression value, Shapley sampling value and Quantitative Input Influence. In that work, they propse SHapley Additive exPlanations (SHAP) values as a unified measure of the contribution of each feature. It uses the Shapley value from game thoery to assign each feature an importance value for a particular predcition. At the point they're preparing the releasement, they also found a similar work pubished in economic field \citep{Charnes1988ShapeleyValueInEconomic}. \\
     \item \textbf{LINDA-BN:} \\ Local Interpretation-Driven Abstract Bayesian Network (LINDA-BN) is a framework using the probalistic graphical model to approximate the blackbox model in local area around input. Similiar to LIME, a local perturbed samples are generated with the prediction of the original as label to form a permutation dataset. Then this dataset will be used to train a Bayersian Network (BN). From the BN, it can explain about how each feature contribute to the result of this prediction, shown as Figure \ref{fig: LINDA-BN_diabetes}. Moreover, since the nature of the graphical model, correlations between input features can also be explored.  \citep{Moreira2021LINDA}.
     \item \textbf{ANCHORS:} \\ \citet{Ribeiro2018Anchors} argue that the explainer with ability to interpret locally is not ideal, as the coverage of these explainers is not clear. People tend to assume that the condition can be applied on other unseen instances, which is not always the case. The authors therefore proposed ANCHORS to fill the gap in existing explainer. ANCHORS is if-then rule-based algorithm to find the rule that sufficiently \textit{anchors} the prediction locally, which means that changing other features that are not anchors does not affect the prediction result. It can explain the behaviour of complex models with high precision rules. The most obvious benefit is the clear coverage that is applied when the anchors are untouched.
 \end{itemize}
@@ -145,7 +145,7 @@ On the other hand, model-specific approaches are those that require specific arc
 %%% DeepLift and TreeShap
 \begin{itemize}
     \item \textbf{DeepLIFT:} \\ Deep Learning Important FeaTure (DeepLIFT) \citep{Shrikumar2017DeepLIFT} uses back-propagation to decompose the output of the model and reveal the contribution of each input feature. Moreover, it discovers the depdencies between features through considering positive and negative contributions seperatelly. In order to address the problem of saturation, the \textbf{summation-to-delta} property (Eq. \ref{eq: summation-to-delta}) is proposed, where $C_{\Delta x_{i} \Delta t}$ is the amount of difference in output attributed to the difference of $x_{i}$.
-    \item \textbf{TreeShap:} \\ 
+    \item \textbf{TreeSHAP:} \\ SHAP \citep{Lundberg2017SHAP} uses unique aditive features attribution method based on conditional expectation to measure the contribution of each feature. However, the complexity of calculating the SHAP value lies in exponential time, which can be compultatinally intensive as the number of features increases. \citet{Scott2018TreeSHAP} proposed Tree SHAP to estimiate the SHAP value in ploynomial time specific to trees ensembles of trees. The idea of Tree SHAP is to recursively keep track of what proportion of all possible subsets flow down into each of the leaves of the tree.
 \end{itemize}
 
 In the following, we will list out two intrinsic algorithms that are model-specific explainers and are widely used in computer vision task~\citep{Spinner2020explAIner}, inlcuding GradCAM~\citep{Selvaraju2017GradCAM} and Integrated Gradients~\citep{Sundararajan2017IntegratedGradient}.
@@ -209,7 +209,7 @@ Eye tracking technology has been studited since a long time ago. In 1950, resear
 
 Today, most eye tracking technologies use corneal reflection, which uses a light source to illuminate the eye. This action creates a little glint under the pupil that the device can use to calibrate and track eye movement \citep{Schall2014EyeTrackingIntro, Fitts2005Cockpit}.
 
-\citet{Blascheck2014VisualisingEyeTracking} illustrates that A temporal order of \textit{fixation} within an Area Of interest (AOI) can be viewed as a \textit{gaze}. The duration of the fixation is usually represented by the radius. \textit{Saccades} are the connections between fixations. When a saccade connects two AOIs it's considered as  \textit{transition}. Finally, \textit{scanpath} consists of a complete sequence of fixations and saccades. The authors also generate human attention map to visualise human's interest on certain scene. This kind of application can assist UI workers to re-design and improve user experience \citep{Schall2014EyeTrackingIntro}.
+\citet{Blascheck2014VisualisingEyeTracking} illustrates that A temporal order of \textit{fixation} within an Area Of interest (AOI) can be viewed as a \textit{gaze}. The duration of the fixation is usually represented by the radius. \textit{Saccades} are the connections between fixations. When a saccade connects two AOIs it's considered as  \textit{transition}. Finally, \textit{scanpath} consists of a complete sequence of fixations and saccades shown as Figure \ref{fig: EyeTrackingDataExplain} . The authors also generate human attention map to visualise human's interest on certain scene. This kind of application can assist UI workers to re-design and improve user experience \citep{Schall2014EyeTrackingIntro}.
 
 % 3. cases that prove eye tracking is useful for capturign user's cognitive process.
 When we're trying to capture where's users attention, it's unreliable to let user describe the whole story. In the work of \citet{Guan2006ThinkAloud}, the author demonstrated that human can reach 47\% of omissions in think-aloud experiment, which represents that human can't self-report precisely. Eye tracking technology is one of the effective methods to track human attention. The eye movement and human cognition are inextricably. \citet{Schall2014EyeTrackingIntro} states that eye tracking technology enable us to capture cognitive processes and visual perception. And, it can be potentially used to observe people's emotions and intentions \citep{Harezlak2018EyeTrackingInMedicine}. \citet{Rayner2015EvidenceCongnitiveFixation} demonstrates the evidence that direct cognitive control of eye fixations in reading. Another prove that eye tracking is highly relatable to cognitive is that eye tracking allow use to detect disease with congnitive disorders \citep{Harezlak2018EyeTrackingInMedicine}, such as Parkinson's disease \citep{S2016Parkinson}, Alzheimer's disease \citep{Crawford2015Alzheimer},
@@ -248,6 +248,15 @@ Eye tracking is also a popular tool used in medical industry.~\citet{Manning2003
     \caption{LINDA-BN explains why a patient is predcited not having diabetes. \citep{Moreira2021LINDA}}
     \label{fig: LINDA-BN_diabetes}
 \end{figure}
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=.8\textwidth]{./images/EyeTrackingDataExplain.png}
+    \caption{LINDA-BN explains why a patient is predcited not having diabetes. \citep{Moreira2021LINDA}}
+    \label{fig: EyeTrackingDataExplain}
+\end{figure}
+
+
 
 
 %% List the sections that I need to do literature review on.
