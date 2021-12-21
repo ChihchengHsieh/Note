@@ -39,7 +39,6 @@
 % EyeGaze
 
 
-
 % p.1 General talk about AI.
 % ! Need to put some reference here.
 With the outstanding performance of deep learning model, Artificial intelligent (AI) system have began to be adopted and impact various industries, including transportation, manufacturing, advertising, financial and medical industries. Using deep learning not only provides a high performance outcome, it also frees people from monotonous and complicated feature engineering works. The non-necessity of feature engineering makes it a perfect choice on handling unstructured data, such as image and text, which has been proven with astonishing results. \\
@@ -220,6 +219,13 @@ While some studies suggest that the link between cognition and eye is not always
 % 4. eye tracking cases on CXR dataset.
 Eye tracking is also a popular tool used in medical industry.~\citet{Manning2003ExpreienceRadiologist} and \citet{Nicholas2015PassingGlance} use eye tracking technology to show that radiologist with different experience have distinct difference in terms of scanning and interpreting strategies. As the eye tracking infomration can indicate the interpretation performance, \citet{McLaughlin2017EvaluateRadiologistPeformanceLevel} proposed an algorithm to assess radiologists' interpretation technique. \citet{Karargyris2021EyeGazePaper} implemented two experiments to demonstrate how can eye tracking information benefit deep learning based predictive system. It shows the eye tracking data can be considered as both input and label for the model. When eye tracking data is treated as input of the model, it can boost the accuracy of the model since it can the information from radiologist. And it can also considered as a output of model to improve the genrarlisation and provide explanation. Recently, \citep{Saab2021EyeTrackingCXRClassification} also proposed a similar algorithms to use eye tracking data as labels in a mutli-task learning framework. In addition, the authors shows the gaze freatures from normal and abnormal CXR images differ noticeably. A set of weak labels can therefore be extracted from eye tracking data for supervised-learning tasks.
 
+
+% 5. Cognitive load 
+
+%% 1. Another thing can be measured through human eyes... (briefly introduce the cognitive load.) => what's cognitive load.
+
+Another thing can be measured through human eyes is radiologists' cognitive load during Chest X-ray reading, which can infer the level of difficulty and fatigue. \citep{Hess1964PupilCorrelateDifficulty} first discovered that the pupil dilation is highly correlated to task difficulty. When a task is more difficult, the pupillary size tend to increase. \citep{Beatty2000pupillaryCorrelateCognitiveLoad} also demonstracted that Task-Evoked Pupillary Responses (TEPRs) are also related to brian activity. In general, the cognitive load is estimated through the pupil diameters changes compared to the baseline in calibration. However, this apporach has two obvios disadvantages. Firstly, the pupil is also senstive to the illuminiation in environment Another disadvantages is the measurement of pupillary size can be affected by the head movement and optical distortions. These two factors can lead to an erroneous measurement \citep{Duchowski2018IPA}. Therefore, Index of Cognitive Activity (ICA) and Index of Pupillary Activity (IPA) \citep{Duchowski2018IPA} are proposed. Instead of measuring the size of pupils compared to baseline, these two methods measure the rate of change of pupil diameter, which mitigates the issues mentioned above. Thorugh measuring the cognitive load, we can comprehend how fatigue and diffculty affect the diagnosis process.
+
 % Congnitive 
 
 Another purpose to include the eye tracking data is to observe the cognitive load.
@@ -284,8 +290,6 @@ In a practical case, the radiologist commonly use clinical data to assist their 
           
            % \item \textbf{Research Question 2: What form of eye tracking representation can promote the radiologists' understandability and interpretability of CXR predictions? }
           %How can eye tracking data representation mechanism increase the radiologist' understandability and interpretation of a CXR image?
-     
-  
               
           \end{itemize}
           
